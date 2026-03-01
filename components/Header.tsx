@@ -3,19 +3,28 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import LanguageToggle from "./LanguageToggle";
-import RecruiterToggle from "./RecruiterToggle";
 import type { Locale } from "@/i18n/dict";
 
 export default function Header({ locale, copy }: { locale: Locale; copy: any }) {
   return (
     <header className="mt-6 flex items-center justify-between gap-3">
       <Link href={`/${locale}`} className="group flex items-center gap-3">
-        <div className="h-10 w-10 rounded-2xl border border-white/10 bg-white/5 shadow-sm" />
-        <div className="leading-tight">
-          <div className="text-sm font-semibold text-white">Mathieu Alassoeur</div>
-          <div className="text-xs text-white/60">Scale-up Data Systems</div>
-        </div>
-      </Link>
+  <div className="h-10 w-10 overflow-hidden rounded-full border border-white/10 bg-white/5 shadow-sm">
+    {/* eslint-disable-next-line @next/next/no-img-element */}
+    <img
+      src="https://avatars.githubusercontent.com/u/115532932?v=4"
+      alt="GitHub avatar"
+      className="h-full w-full object-cover"
+    />
+  </div>
+
+  <div className="leading-tight">
+    <div className="text-sm font-semibold text-white group-hover:text-white/90 transition">
+      Mathieu Alassoeur
+    </div>
+    <div className="text-xs text-white/60">@MatALass</div>
+  </div>
+</Link>
 
       <motion.div
         initial={{ opacity: 0, y: -8 }}
@@ -42,7 +51,6 @@ export default function Header({ locale, copy }: { locale: Locale; copy: any }) 
           </span>
         </button>
 
-        <RecruiterToggle copy={copy} />
         <LanguageToggle locale={locale} />
       </motion.div>
     </header>

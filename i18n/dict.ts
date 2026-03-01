@@ -1,8 +1,16 @@
+// i18n/dict.ts
 export type Locale = "en" | "fr";
 
 const dict = {
   en: {
-    nav: { overview: "Overview", projects: "Projects", systems: "Systems", lab: "Lab", about: "About", contact: "Contact" },
+    nav: {
+      overview: "Overview",
+      projects: "Projects",
+      systems: "Systems",
+      lab: "Lab",
+      about: "About",
+      contact: "Contact",
+    },
     hero: {
       name: "Mathieu Alassoeur",
       tagline: "Building reliable data systems for decision-making.",
@@ -15,21 +23,33 @@ const dict = {
       analyticsTitle: "Analytics & Dashboards",
       analyticsBody: "Turn raw datasets into explorable insights and clear KPIs.",
       automationTitle: "Automation & Reporting",
-      automationBody: "Build pipelines that produce consistent outputs with less manual work.",
+      automationBody:
+        "Build pipelines that produce consistent outputs with less manual work.",
       qualityTitle: "Data Quality Systems",
-      qualityBody: "Validate, log, and structure data for reproducibility and trust.",
+      qualityBody:
+        "Validate, log, and structure data for reproducibility and trust.",
     },
     metrics: {
-      title: "Live metrics",
-      projects: "Projects shipped",
-      dashboards: "Dashboards built",
-      pipelines: "Pipelines designed",
-      automations: "Automation tools",
+      title: "GitHub",
+      repos: "Public repos",
+      followers: "Followers",
+      lastPush: "Last activity",
+
+      // nouveaux labels
+      activeRepos30d: "Active repos (30d)",
+      daysSinceLastPush: "Days since last push",
     },
     footer: { built: "Built with Next.js, Tailwind, Framer Motion, and Three.js." },
   },
   fr: {
-    nav: { overview: "Aperçu", projects: "Projets", systems: "Systèmes", lab: "Lab", about: "À propos", contact: "Contact" },
+    nav: {
+      overview: "Aperçu",
+      projects: "Projets",
+      systems: "Systèmes",
+      lab: "Lab",
+      about: "À propos",
+      contact: "Contact",
+    },
     hero: {
       name: "Mathieu Alassoeur",
       tagline: "Construire des systèmes data fiables pour aider à décider.",
@@ -44,14 +64,18 @@ const dict = {
       automationTitle: "Automatisation & Reporting",
       automationBody: "Créer des pipelines cohérents, réduire le travail manuel.",
       qualityTitle: "Qualité des données",
-      qualityBody: "Valider, tracer et structurer pour la reproductibilité et la confiance.",
+      qualityBody:
+        "Valider, tracer et structurer pour la reproductibilité et la confiance.",
     },
     metrics: {
-      title: "Indicateurs",
-      projects: "Projets livrés",
-      dashboards: "Dashboards créés",
-      pipelines: "Pipelines conçus",
-      automations: "Outils d’automatisation",
+      title: "GitHub",
+      repos: "Repos publics",
+      followers: "Abonnés",
+      lastPush: "Dernière activité",
+
+      // nouveaux labels
+      activeRepos30d: "Repos actifs (30j)",
+      daysSinceLastPush: "Jours depuis dernier push",
     },
     footer: { built: "Construit avec Next.js, Tailwind, Framer Motion et Three.js." },
   },

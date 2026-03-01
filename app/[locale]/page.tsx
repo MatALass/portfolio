@@ -23,14 +23,14 @@ export default async function Home({
       <div className="relative mx-auto max-w-6xl px-5 pb-16">
         <Header locale={locale} copy={copy} />
         <StatusBar locale={locale} />
-        <section className="mt-10 grid gap-6 lg:mt-14 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-8">
-            <Hero locale={locale} copy={copy} />
-          </div>
-          <div className="lg:col-span-4">
-            <LiveMetrics locale={locale} copy={copy} />
-          </div>
-        </section>
+        <section className="mt-10 grid items-stretch gap-6 lg:mt-14 lg:grid-cols-12 lg:gap-8">
+        <div className="lg:col-span-8 h-full">
+          <Hero locale={locale} copy={copy} />
+        </div>
+        <div className="lg:col-span-4 h-full">
+          <LiveMetrics locale={locale} copy={copy} />
+        </div>
+      </section>
 
         <section className="mt-10 lg:mt-14">
           <WhatIDo copy={copy} />
