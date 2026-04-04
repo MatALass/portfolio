@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mathieu Alassoeur — Data Analyst · Analytics Engineer</title>
+  <meta
+    name="description"
+    content="Portfolio of Mathieu Alassoeur — Data Analyst, Analytics Engineer, BI, ML, Game Dev, Web projects."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="ring"></div>
+<div class="scroll-bar" id="scrollBar"></div>
+<nav>
+<div class="nav-inner">
+<a class="nav-logo" href="#home">Mathieu A.</a>
+<div class="nav-right">
+<ul class="nav-links">
+<li><a href="#projects" id="nav-projects">Projects</a></li>
+<li><a href="#experience" id="nav-experience">Experience</a></li>
+<li><a href="#stack" id="nav-stack">Stack</a></li>
+<li><a href="#about" id="nav-about">About</a></li>
+<li><a href="#play" id="nav-play">Play</a></li>
+</ul>
+<button aria-label="Switch language" class="lang-toggle" id="langToggle" type="button">
+          EN
+        </button>
+</div>
+</div>
+</nav>
+<section class="visible" id="home">
+<div class="container hero-grid">
+<div>
+<div class="hero-eyebrow" id="hero-eyebrow-text">Data Analyst · Analytics Engineer · EFREI Paris</div>
+<h1 class="hero-title">
+          Mathieu<br/>
+<em>Alassoeur.</em><br/>
+<span class="accent" id="hero-title-accent">Reliable data systems.</span>
+</h1>
+<p class="hero-desc" id="hero-desc-text">
+          I turn messy data into reliable KPIs, dashboards, and decision-ready systems — with a strong focus on data quality, maintainability, and real execution.
+        </p>
+<div class="hero-cta">
+<a class="btn-primary" href="#projects" id="hero-cta-projects">View projects</a>
+<a class="btn-ghost" href="https://github.com/MatALass" id="hero-cta-github" rel="noreferrer" target="_blank">GitHub</a>
+<a class="btn-link" href="CV_Mathieu_Alassoeur.pdf" id="hero-cta-cv">Download CV →</a>
+</div>
+<div class="hero-note" id="hero-note-text">
+          Looking for a Data Analyst / BI / Analytics Engineering opportunity.
+        </div>
+</div>
+<div class="hero-side">
+<div class="hero-panel">
+<div class="panel-top panel-top-simple">
+<div class="panel-tag">portfolio-grade</div>
+</div>
+<div class="panel-title" id="panel-title-text">BI, ML, Game Dev, Web</div>
+<p class="panel-copy" id="panel-copy-text">
+            Data and BI are the core of my positioning. Machine learning extends that foundation, and web/game projects remain supporting proof that I can design, structure, and ship complete systems.
+          </p>
+</div>
+<div class="hero-metrics">
+<div class="metric-card">
+<div class="metric-value">BI</div>
+<div class="metric-label" id="metric-bi-label">Dashboards &amp; KPI logic</div>
+<div class="metric-sub" id="metric-bi-sub">Reporting, metrics structuring, data cleaning, and decision-support thinking.</div>
+</div>
+<div class="metric-card">
+<div class="metric-value">Data</div>
+<div class="metric-label" id="metric-ml-label">Applied modeling</div>
+<div class="metric-sub" id="metric-ml-sub">Prediction workflows, feature engineering, evaluation logic, and iteration.</div>
+</div>
+<div class="metric-card">
+<div class="metric-value">ML</div>
+<div class="metric-label" id="metric-game-label">Architecture through play</div>
+<div class="metric-sub" id="metric-game-sub">State management, systems thinking, modular design, and polish.</div>
+</div>
+<div class="metric-card">
+<div class="metric-value">Eng</div>
+<div class="metric-label" id="metric-web-label">Front-end delivery</div>
+<div class="metric-sub" id="metric-web-sub">Interfaces, structure, usability, and presentable public-facing work.</div>
+</div>
+</div>
+<div class="hero-github-row github-snapshot-card">
+<div class="github-snapshot-header">
+<div>
+<div class="github-snapshot-kicker" id="github-snapshot-kicker">GitHub snapshot</div>
+<div class="github-snapshot-title" id="github-snapshot-title">Public profile signals</div>
+</div>
+<a class="github-snapshot-link" href="https://github.com/MatALass" id="github-profile-link" rel="noreferrer" target="_blank">
+              View profile
+            </a>
+</div>
+<div class="github-snapshot-grid">
+<div class="metric-card github-metric-card">
+<div class="github-live-label" id="github-repos-label">Public GitHub repos</div>
+<div class="metric-value github-metric-value" id="githubRepoCount">Loading...</div>
+<div class="metric-sub" id="github-repos-sub">Live value fetched from the public GitHub API.</div>
+</div>
+<div class="metric-card github-metric-card">
+<div class="github-live-label" id="github-active-label">Recently active repos</div>
+<div class="metric-value github-metric-value" id="githubActiveRepoCount">Loading...</div>
+<div class="metric-sub" id="github-active-sub">Repositories pushed in the last 180 days.</div>
+</div>
+<div class="metric-card github-metric-card">
+<div class="github-live-label" id="github-flagship-label">Flagship engineering repo</div>
+<div class="github-live-value" id="githubFlagshipRepo">github-portfolio-auditor</div>
+<div class="metric-sub" id="githubFlagshipMeta">Python · Streamlit · GitHub API · scoring logic</div>
+</div>
+<div class="metric-card github-metric-card">
+<div class="github-live-label" id="github-latest-label">Latest updated repo</div>
+<div class="github-live-value" id="githubLatestRepo">Loading...</div>
+<div class="metric-sub" id="githubLatestDate">Checking recent public activity...</div>
+</div>
+</div>
+<div class="github-snapshot-summary" id="githubSnapshotSummary">
+            Loading public GitHub summary...
+          </div>
+</div>
+</div>
+</div>
+</section>
+<section id="projects">
+<div class="container">
+<div class="section-header">
+<div class="section-eyebrow" id="projects-eyebrow-text">01 — Selected Projects</div>
+<h2 class="section-title" id="projects-title-text">
+          Projects that show how I think,<br/>
+<em>not just what I can display.</em>
+</h2>
+<p class="section-subtitle" id="projects-subtitle-text">
+          Click any project to open a detailed case view with context, architecture, rationale, constraints, and implementation decisions.
+        </p>
+</div>
+<div class="project-grid" id="projectGrid"></div>
+</div>
+</section>
+<section id="experience">
+<div class="container">
+<div class="section-header">
+<div class="section-eyebrow" id="experience-eyebrow-text">02 — Experience</div>
+<h2 class="section-title" id="experience-title-text">
+          Real work matters,<br/>
+<em>especially when the data is messy.</em>
+</h2>
+<p class="section-subtitle" id="experience-subtitle-text">
+          Academic projects matter, but stronger credibility comes from handling imperfect data, reporting constraints, and business-facing delivery.
+        </p>
+</div>
+<div class="timeline">
+<article class="timeline-item">
+<div class="timeline-top">
+<div class="timeline-date" id="exp-1-date">Recent experience</div>
+<div>
+<div class="timeline-role" id="exp-1-role">Data Analyst Intern</div>
+<div class="timeline-org" id="exp-1-org">International School of Management — Germany</div>
+</div>
+</div>
+<p class="timeline-copy" id="exp-1-copy">
+            I worked on data quality, structuring, and analytical usability across institutional data. The work was less about theoretical dashboards and more about making inconsistent data genuinely usable for reporting and decision-making.
+          </p>
+<ul class="timeline-points" id="exp-1-points"></ul>
+</article>
+<article class="timeline-item">
+<div class="timeline-top">
+<div class="timeline-date" id="exp-2-date">Current education</div>
+<div>
+<div class="timeline-role" id="exp-2-role">Engineering Student — 4th Year</div>
+<div class="timeline-org" id="exp-2-org">EFREI Paris · BI / analytics-oriented profile</div>
+</div>
+</div>
+<p class="timeline-copy" id="exp-2-copy">
+            My academic path became much more valuable once I started turning school work into stronger deliverables: better project structure, clearer documentation, more explicit technical tradeoffs, and more serious public-facing repositories.
+          </p>
+<ul class="timeline-points" id="exp-2-points"></ul>
+</article>
+</div>
+</div>
+</section>
+<section id="stack">
+<div class="container">
+<div class="section-header">
+<div class="section-eyebrow" id="stack-eyebrow-text">03 — Technical Stack</div>
+<h2 class="section-title" id="stack-title-text">
+          I prefer clear stacks,<br/>
+<em>clean workflows, and explicit tradeoffs.</em>
+</h2>
+<p class="section-subtitle" id="stack-subtitle-text">
+          I do not like fake percentage bars. I would rather show what I actually use, what I build with it, and what I optimize for.
+        </p>
+</div>
+<div class="stack-layout">
+<div class="stack-card">
+<h3 id="stack-card-1-title">Core stack</h3>
+<div class="stack-group">
+<div class="stack-label" id="stack-data-label">Data analysis</div>
+<div class="stack-copy" id="stack-data-copy"></div>
+</div>
+<div class="stack-group">
+<div class="stack-label" id="stack-bi-label">Analytics / BI</div>
+<div class="stack-copy" id="stack-bi-copy"></div>
+</div>
+<div class="stack-group">
+<div class="stack-label" id="stack-eng-label">Project engineering</div>
+<div class="stack-copy" id="stack-eng-copy"></div>
+</div>
+<div class="stack-group">
+<div class="stack-label" id="stack-work-label">Working knowledge</div>
+<div class="stack-copy" id="stack-work-copy"></div>
+</div>
+</div>
+<div class="stack-card">
+<h3 id="stack-card-2-title">What I optimize for</h3>
+<ul class="strength-list" id="strength-list"></ul>
+</div>
+</div>
+</div>
+</section>
+<section id="about">
+<div class="container">
+<div class="section-header">
+<div class="section-eyebrow" id="about-eyebrow-text">04 — About</div>
+<h2 class="section-title" id="about-title-text">
+          A data profile,<br/>
+<em>with a builder’s mindset.</em>
+</h2>
+<p class="section-subtitle" id="about-subtitle-text">
+          I like elegant interfaces, but I care more about whether the underlying project is actually sound.
+        </p>
+</div>
+<div class="about-layout">
+<div class="about-card">
+<div class="about-copy" id="about-copy-block"></div>
+<div class="quote-line" id="about-quote-line"></div>
+</div>
+<div class="contact-card">
+<h3 id="contact-title-text">Contact</h3>
+<p class="contact-note" id="contact-note-text">
+            I am currently looking for an opportunity in Data Analysis, BI, or Analytics Engineering.
+          </p>
+<div class="contact-list">
+<a class="contact-link" href="mailto:mathieualassoeur@gmail.com">
+<div class="cicon">EM</div>
+<span id="contact-email-text">mathieualassoeur@gmail.com</span>
+</a>
+<a class="contact-link" href="https://github.com/MatALass" rel="noreferrer" target="_blank">
+<div class="cicon">GH</div>
+              github.com/MatALass
+            </a>
+<a class="contact-link" href="https://linkedin.com/in/mathieu-alassoeur" rel="noreferrer" target="_blank">
+<div class="cicon">LI</div>
+              linkedin.com/in/mathieu-alassoeur
+            </a>
+<a class="contact-link" href="CV_Mathieu_Alassoeur.pdf">
+<div class="cicon">CV</div>
+<span id="contact-resume-text">Download resume</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="play">
+<div class="container">
+<div class="section-header">
+<div class="section-eyebrow" id="play-eyebrow-text">05 — Playable Demo</div>
+<h2 class="section-title" id="play-title-text">
+          A project can also be <br/>
+<em>experienced directly.</em>
+</h2>
+<p class="section-subtitle" id="play-subtitle-text">
+          This final section is prepared to embed a playable JavaScript project. For now, it is wired for Morpion Ultime so the portfolio can end with something interactive instead of a static card only.
+        </p>
+</div>
+<div class="play-layout">
+<div class="play-info-card">
+<div class="play-kicker" id="play-kicker-text">Morpion Ultime · JavaScript AI project</div>
+<h3 class="play-project-title" id="play-project-title-text">Ultimate Tic-Tac-Toe with AI</h3>
+<p class="play-project-copy" id="play-project-copy-text">
+            This project matters because it is not just another toy game: it combines game rules, search algorithms, decision logic, and a UI layer in one coherent interactive system.
+          </p>
+<div class="play-points" id="play-points-list"></div>
+<div class="play-actions">
+<a class="btn-primary" href="https://matalass.github.io/morpion-ultime/" id="play-live-link" rel="noreferrer" target="_blank">
+              Open live demo
+            </a>
+<a class="btn-ghost" href="https://github.com/MatALass/morpion-ultime" id="play-github-link" rel="noreferrer" target="_blank">
+              Open GitHub
+            </a>
+</div>
+</div>
+<div class="play-embed-card">
+<div class="play-embed-top">
+<div class="play-embed-label" id="play-embed-label-text">Playable demo</div>
+<div class="play-embed-hint" id="play-embed-hint-text">Live project embedded below for direct interaction.</div>
+</div>
+<div class="play-browser-bar">
+<div aria-hidden="true" class="play-browser-dots"><span></span><span></span><span></span></div>
+<div class="play-browser-url" id="play-browser-url">https://matalass.github.io/morpion-ultime/</div>
+<a class="play-browser-open" href="https://matalass.github.io/morpion-ultime/" id="play-browser-open" rel="noreferrer" target="_blank">Open full page</a>
+</div>
+<div class="play-embed-shell" id="playEmbedShell">
+<div class="play-placeholder" id="playPlaceholder">
+<div class="play-placeholder-title" id="play-placeholder-title-text">Embed ready, deployment missing</div>
+<p class="play-placeholder-copy" id="play-placeholder-copy-text">
+                GitHub repository pages cannot be embedded as a playable game. Deploy the project on GitHub Pages, Vercel, or Netlify, then set MORPION_EMBED_URL in the script to show the live game here.
+              </p>
+<a class="btn-link" href="https://github.com/MatALass/morpion-ultime" id="play-placeholder-link" rel="noreferrer" target="_blank">
+                Inspect the repository →
+              </a>
+</div>
+<iframe class="play-iframe" id="morpionFrame" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Morpion Ultime playable demo"></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<div class="footer-inner">
+<div class="footer-logo">Mathieu Alassoeur</div>
+<div class="footer-note" id="footer-note-text">Built with HTML · CSS · JS — V2.4 portfolio</div>
+</div>
+</footer>
+<div aria-hidden="true" class="modal-overlay" id="projectModalOverlay">
+<div aria-labelledby="projectModalTitle" aria-modal="true" class="modal" role="dialog">
+<div class="modal-header">
+<div class="modal-title-wrap">
+<div class="modal-kicker" id="modalCategory">Project</div>
+<div class="modal-title" id="projectModalTitle">Project title</div>
+</div>
+<button aria-label="Close project details" class="modal-close" id="modalCloseBtn">✕</button>
+</div>
+<div class="modal-body">
+<div class="modal-intro">
+<div class="modal-lead">
+<div class="modal-lead-quote" id="modalQuote"></div>
+<div class="modal-lead-copy" id="modalSummary"></div>
+<div class="modal-tags" id="modalTags"></div>
+<div class="modal-links" id="modalLinks"></div>
+</div>
+<div class="modal-side-box" id="modalMeta"></div>
+</div>
+<div class="modal-grid">
+<div class="modal-section">
+<h4 id="modal-context-title">Context</h4>
+<p id="modalContext"></p>
+</div>
+<div class="modal-section">
+<h4 id="modal-architecture-title">Architecture / structure</h4>
+<p id="modalArchitecture"></p>
+</div>
+<div class="modal-section">
+<h4 id="modal-decisions-title">Key decisions</h4>
+<ul id="modalDecisions"></ul>
+</div>
+<div class="modal-section">
+<h4 id="modal-proof-title">What this project proves</h4>
+<ul id="modalProof"></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+  <script type="module" src="./src/js/app.js"></script>
+</body>
+</html>

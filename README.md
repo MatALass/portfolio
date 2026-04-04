@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Front-End Refactor
 
-## Getting Started
+Refactor modulaire du portfolio statique initial.
 
-First, run the development server:
+## Objectif
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Conserver le rendu, le contenu et la logique produit du portfolio existant, tout en supprimant le principal défaut technique : tout le site était concentré dans un unique fichier HTML avec CSS et JavaScript inline.
+
+## Ce qui a été refactoré
+
+- `index.html` garde uniquement la structure HTML et les points d'ancrage UI
+- `assets/css/main.css` contient tout le style
+- `src/js/data/content.js` centralise le contenu éditable : traductions, projets mis en avant, constantes de configuration
+- `src/js/render/*` gère le rendu des sections traduites et des cartes projet
+- `src/js/features/*` isole les comportements : modal, GitHub snapshot, démo jouable, navigation, curseur
+- `tests/*` ajoute une base de tests sur les helpers et la cohérence du contenu
+
+## Structure
+
+```text
+portfolio-refactored/
+├── assets/
+│   └── css/
+│       └── main.css
+├── src/
+│   └── js/
+│       ├── app.js
+│       ├── data/
+│       │   └── content.js
+│       ├── features/
+│       │   ├── cursor.js
+│       │   ├── github-snapshot.js
+│       │   ├── modal.js
+│       │   ├── navigation.js
+│       │   └── playable-demo.js
+│       ├── render/
+│       │   ├── projects.js
+│       │   └── translations.js
+│       └── utils/
+│           ├── github.js
+│           └── path.js
+├── tests/
+│   ├── content.test.js
+│   └── github.test.js
+├── index.html
+├── package.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Modifier les projets mis en avant
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Tout passe maintenant par `src/js/data/content.js`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Les prochains changements doivent se faire là :
 
-## Learn More
+- titres
+- badges
+- pitchs
+- stacks
+- tags
+- liens GitHub / live
+- contenu détaillé des modales
 
-To learn more about Next.js, take a look at the following resources:
+C'est le bon point d'entrée pour remplacer la sélection actuelle sans toucher au rendu ni aux comportements globaux.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Lancer le projet
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+python -m http.server 8000
+```
 
-## Deploy on Vercel
+Puis ouvrir `http://localhost:8000`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Lancer les tests
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+node --test
+```
+
+## Limites restantes
+
+- J'ai gardé la sélection actuelle des projets, car tu n'as pas encore donné la nouvelle shortlist cible
+- Le snapshot GitHub reste côté front via l'API publique GitHub
+- Le projet reste volontairement sans build step pour garder un déploiement statique simple
+
+## Recommandation
+
+La prochaine vraie étape utile n'est pas de toucher encore à l'architecture : c'est de décider la nouvelle sélection exacte des projets à mettre en avant, puis de rationaliser le contenu dans `content.js` pour que chaque carte serve clairement ton positionnement Data / BI / Analytics Engineering.
+
+
+## Tests
+
+Run the lightweight Node test suite:
+
+```bash
+node --test
+```
+
+The suite now includes:
+- data and translation integrity tests
+- GitHub summary utility tests
+- DOM-oriented rendering tests
+- modal and playable-demo behavior tests
