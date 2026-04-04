@@ -1,8 +1,12 @@
 export function setupCustomCursor() {
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const isTouchDevice = window.matchMedia("(hover: none), (pointer: coarse)").matches;
-  const cursor = document.getElementById("cursor");
-  const ring = document.getElementById("ring");
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  ).matches;
+  const isTouchDevice = window.matchMedia(
+    '(hover: none), (pointer: coarse)',
+  ).matches;
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('ring');
 
   if (prefersReducedMotion || isTouchDevice || !cursor || !ring) return;
 
@@ -11,7 +15,7 @@ export function setupCustomCursor() {
   let ringX = mouseX;
   let ringY = mouseY;
 
-  document.addEventListener("mousemove", (event) => {
+  document.addEventListener('mousemove', (event) => {
     mouseX = event.clientX;
     mouseY = event.clientY;
     cursor.style.left = `${mouseX}px`;
@@ -28,19 +32,20 @@ export function setupCustomCursor() {
 
   animateRing();
 
-  const interactiveSelector = "a, button, .project-card, .timeline-item, .stack-card, .hero-panel, .metric-card, .github-snapshot-card, .play-info-card, .play-embed-card";
+  const interactiveSelector =
+    'a, button, .project-card, .timeline-item, .stack-card, .hero-panel, .metric-card, .github-snapshot-card, .play-info-card, .play-embed-card';
 
-  document.addEventListener("mouseover", (event) => {
+  document.addEventListener('mouseover', (event) => {
     if (!event.target.closest(interactiveSelector)) return;
-    cursor.style.transform = "translate(-50%, -50%) scale(1.8)";
-    cursor.style.background = "var(--terra)";
-    ring.style.opacity = "0.7";
+    cursor.style.transform = 'translate(-50%, -50%) scale(1.8)';
+    cursor.style.background = 'var(--terra)';
+    ring.style.opacity = '0.7';
   });
 
-  document.addEventListener("mouseout", (event) => {
+  document.addEventListener('mouseout', (event) => {
     if (!event.target.closest(interactiveSelector)) return;
-    cursor.style.transform = "translate(-50%, -50%) scale(1)";
-    cursor.style.background = "var(--indigo)";
-    ring.style.opacity = "0.4";
+    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+    cursor.style.background = 'var(--indigo)';
+    ring.style.opacity = '0.4';
   });
 }

@@ -8,12 +8,13 @@ export function summarizeGitHubRepos(repos, now = Date.now()) {
   const activeCount = repos.filter((repo) => {
     if (!repo?.pushed_at) return false;
     const pushedAt = new Date(repo.pushed_at).getTime();
-    return Number.isFinite(pushedAt) && (now - pushedAt) <= ACTIVE_WINDOW_MS;
+    return Number.isFinite(pushedAt) && now - pushedAt <= ACTIVE_WINDOW_MS;
   }).length;
 
-  const latestRepo = [...repos]
-    .filter((repo) => repo?.pushed_at)
-    .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))[0] ?? null;
+  const latestRepo =
+    [...repos]
+      .filter((repo) => repo?.pushed_at)
+      .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))[0] ?? null;
 
   return {
     activeCount,
@@ -24,10 +25,10 @@ export function summarizeGitHubRepos(repos, now = Date.now()) {
 
 export function formatGithubDate(isoDate, language) {
   if (!isoDate) return null;
-  const locale = language === "fr" ? "fr-FR" : "en-GB";
+  const locale = language === 'fr' ? 'fr-FR' : 'en-GB';
   return new Date(isoDate).toLocaleDateString(locale, {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   });
 }

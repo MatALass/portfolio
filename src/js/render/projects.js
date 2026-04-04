@@ -1,12 +1,12 @@
-import { projectTranslations } from "../data/content.js";
+import { projectTranslations } from '../data/content/index.js';
 
 export function getProjects(language) {
   return projectTranslations[language];
 }
 
 export function createProjectCard(project, labels) {
-  const card = document.createElement("article");
-  card.className = "project-card";
+  const card = document.createElement('article');
+  card.className = 'project-card';
   card.innerHTML = `
     <div class="project-top">
       <div class="project-name">${project.title}</div>
@@ -23,7 +23,7 @@ export function createProjectCard(project, labels) {
     </div>
 
     <div class="tags">
-      ${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
+      ${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}
     </div>
 
     <div class="project-actions">
@@ -35,40 +35,46 @@ export function createProjectCard(project, labels) {
 }
 
 export function renderProjects(language, labels) {
-  const grid = document.getElementById("projectGrid");
-  grid.innerHTML = "";
-  getProjects(language).forEach((project) => grid.appendChild(createProjectCard(project, labels)));
+  const grid = document.getElementById('projectGrid');
+  grid.innerHTML = '';
+  getProjects(language).forEach((project) =>
+    grid.appendChild(createProjectCard(project, labels)),
+  );
 }
 
 export function fillList(elementId, items) {
   const element = document.getElementById(elementId);
-  element.innerHTML = items.map((item) => `<li>${item}</li>`).join("");
+  element.innerHTML = items.map((item) => `<li>${item}</li>`).join('');
 }
 
 export function fillTags(tags) {
-  const element = document.getElementById("modalTags");
-  element.innerHTML = tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
+  const element = document.getElementById('modalTags');
+  element.innerHTML = tags
+    .map((tag) => `<span class="tag">${tag}</span>`)
+    .join('');
 }
 
 export function fillMeta(meta) {
-  const element = document.getElementById("modalMeta");
+  const element = document.getElementById('modalMeta');
   element.innerHTML = meta
-    .map(([label, value]) => `
+    .map(
+      ([label, value]) => `
       <div class="modal-meta-item">
         <div class="modal-meta-label">${label}</div>
         <div class="modal-meta-value">${value}</div>
       </div>
-    `)
-    .join("");
+    `,
+    )
+    .join('');
 }
 
 export function fillLinks(links) {
-  const element = document.getElementById("modalLinks");
+  const element = document.getElementById('modalLinks');
   element.innerHTML = links
     .map(
       ([label, href, primary], index) => `
         <a
-          class="modal-link ${index === 0 && primary ? "primary" : ""}"
+          class="modal-link ${index === 0 && primary ? 'primary' : ''}"
           href="${href}"
           target="_blank"
           rel="noreferrer"
@@ -77,5 +83,5 @@ export function fillLinks(links) {
         </a>
       `,
     )
-    .join("");
+    .join('');
 }

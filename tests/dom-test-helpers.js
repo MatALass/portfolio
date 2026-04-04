@@ -14,20 +14,44 @@ class FakeClassList {
   contains(token) {
     return this.values.has(token);
   }
+
+  toggle(token, force) {
+    if (force === true) {
+      this.add(token);
+      return true;
+    }
+
+    if (force === false) {
+      this.remove(token);
+      return false;
+    }
+
+    if (this.contains(token)) {
+      this.remove(token);
+      return false;
+    }
+
+    this.add(token);
+    return true;
+  }
 }
 
 class FakeElement {
-  constructor(id = "", tagName = "div") {
+  constructor(id = '', tagName = 'div') {
     this.id = id;
     this.tagName = tagName.toUpperCase();
-    this.textContent = "";
-    this.innerHTML = "";
+    this.textContent = '';
+    this.innerHTML = '';
     this.style = {};
     this.attributes = {};
     this.children = [];
     this.classList = new FakeClassList();
-    this.href = "";
-    this.src = "";
+    this.href = '';
+    this.src = '';
+    this.loading = '';
+    this.referrerPolicy = '';
+    this.focused = false;
+    this.dataset = {};
   }
 
   setAttribute(name, value) {
@@ -40,29 +64,34 @@ class FakeElement {
 
   removeAttribute(name) {
     delete this.attributes[name];
-    if (name === "src") this.src = "";
+    if (name === 'src') this.src = '';
   }
 
   appendChild(child) {
     this.children.push(child);
     return child;
   }
+
+  focus() {
+    this.focused = true;
+  }
 }
 
 export function createFakeDocument(elementIds = []) {
   const elements = new Map();
-  const metaDescription = new FakeElement("meta-description", "meta");
+  const metaDescription = new FakeElement('meta-description', 'meta');
 
   for (const id of elementIds) {
     elements.set(id, new FakeElement(id));
   }
 
   const document = {
-    title: "",
-    documentElement: { lang: "en" },
-    body: new FakeElement("body", "body"),
+    title: '',
+    activeElement: null,
+    documentElement: { lang: 'en' },
+    body: new FakeElement('body', 'body'),
     createElement(tagName) {
-      return new FakeElement("", tagName);
+      return new FakeElement('', tagName);
     },
     getElementById(id) {
       return elements.get(id) ?? null;
