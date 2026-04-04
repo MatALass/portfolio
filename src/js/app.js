@@ -89,4 +89,6 @@ export function bootstrap() {
   setLanguage(currentLanguage);
 }
 
-bootstrap();
+if (typeof window !== 'undefined') {
+  bootstrap();
+}

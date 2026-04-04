@@ -101,7 +101,7 @@ export function fillLinks(links) {
           href="${escapeHtml(href)}"
           target="_blank"
           rel="noreferrer"
-        >
+        <a>
           ${escapeHtml(label)}
         </a>
       `,
