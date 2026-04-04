@@ -98,6 +98,13 @@ export function createFakeDocument(elementIds = []) {
     },
     querySelector(selector) {
       if (selector === 'meta[name="description"]') return metaDescription;
+      // Support class selectors for elements registered by id
+      if (selector.startsWith('.')) {
+        const className = selector.slice(1);
+        for (const el of elements.values()) {
+          if (el.classList.contains(className)) return el;
+        }
+      }
       return null;
     },
   };

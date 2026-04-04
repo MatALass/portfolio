@@ -8,7 +8,13 @@ export function translate(language, path) {
 export function fillSimpleList(elementId, items) {
   const element = document.getElementById(elementId);
   if (!element) return;
-  element.innerHTML = items.map((item) => `<li>${item}</li>`).join('');
+  element.innerHTML = items
+    .map((item) => {
+      const div = document.createElement('div');
+      div.textContent = item;
+      return `<li>${div.innerHTML}</li>`;
+    })
+    .join('');
 }
 
 export function applyStaticTranslations(language) {
