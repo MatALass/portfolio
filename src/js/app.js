@@ -6,6 +6,7 @@ import { openProjectModal, closeProjectModal } from './features/modal.js';
 import { fetchGitHubStats } from './features/github-snapshot.js';
 import { setupPlayableDemo } from './features/playable-demo.js';
 import { setupCustomCursor } from './features/cursor.js';
+import { applyRuntimeLinks } from './features/runtime-links.js';
 import {
   setupActiveNav,
   setupScrollBar,
@@ -78,6 +79,7 @@ function setupProjectModalInteractions() {
 }
 
 export function bootstrap() {
+  applyRuntimeLinks();
   setupLanguageToggle();
   setupProjectModalInteractions();
   setupCustomCursor();

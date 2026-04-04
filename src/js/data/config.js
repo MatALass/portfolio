@@ -1,2 +1,11 @@
-export const GITHUB_USERNAME = 'MatALass';
-export const MORPION_EMBED_URL = 'https://matalass.github.io/morpion-ultime/';
+export const SITE_CONFIG = {
+  githubUsername: 'MatALass',
+  playableDemoUrl: 'https://matalass.github.io/morpion-ultime/',
+  cvFilePath: './assets/docs/mathieu-alassoeur-cv.pdf',
+  enableCustomCursor: false,
+};
+
+export const GITHUB_USERNAME = SITE_CONFIG.githubUsername;
+export const MORPION_EMBED_URL = SITE_CONFIG.playableDemoUrl;
+export const CV_FILE_PATH = SITE_CONFIG.cvFilePath;
+export const ENABLE_CUSTOM_CURSOR = SITE_CONFIG.enableCustomCursor;

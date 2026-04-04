@@ -1,14 +1,27 @@
+import { ENABLE_CUSTOM_CURSOR } from '../data/config.js';
+
 export function setupCustomCursor() {
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('ring');
+
+  if (!ENABLE_CUSTOM_CURSOR || !cursor || !ring) {
+    document.body.classList.remove('custom-cursor-enabled');
+    return false;
+  }
+
   const prefersReducedMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)',
   ).matches;
   const isTouchDevice = window.matchMedia(
     '(hover: none), (pointer: coarse)',
   ).matches;
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('ring');
 
-  if (prefersReducedMotion || isTouchDevice || !cursor || !ring) return;
+  if (prefersReducedMotion || isTouchDevice) {
+    document.body.classList.remove('custom-cursor-enabled');
+    return false;
+  }
+
+  document.body.classList.add('custom-cursor-enabled');
 
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
@@ -48,4 +61,6 @@ export function setupCustomCursor() {
     cursor.style.background = 'var(--indigo)';
     ring.style.opacity = '0.4';
   });
+
+  return true;
 }

@@ -1,24 +1,27 @@
-# Mathieu Portfolio — V3 Refactor
+# Mathieu Portfolio — V4 Refactor
 
 Portfolio statique refactoré proprement à partir d'un fichier HTML monolithique, sans perdre la direction artistique ni la logique produit du portfolio original.
 
+## Ce que la V4 améliore
+
+Cette V4 ne change pas le socle du projet. Elle ajoute surtout de meilleures finitions produit et une configuration plus propre :
+
+- curseur custom rendu **optionnel** et désactivé par défaut
+- liens runtime centralisés pour le GitHub public et le CV
+- emplacement de CV clair et stable dans le repo
+- amélioration légère de l'accessibilité avec skip link et focus visible
+- métadonnées HTML un peu plus propres pour le partage/publication
+
 ## Objectif
 
-Cette V3 ne cherche pas à changer l'identité du portfolio. Elle cherche à rendre le projet plus défendable techniquement :
+La refonte cherche à rendre le projet plus défendable techniquement sans le sur-architecturer :
 
-- architecture front plus lisible
-- contenu éditable mieux découpé
+- architecture front lisible
+- contenu éditable bien découpé
 - validation du contenu
 - tests DOM et tests de cohérence
 - chaîne qualité minimale
 - base CI pour éviter les régressions
-
-## Principes de la refonte
-
-- garder un **site statique simple à déployer**
-- éviter une migration artificielle vers React ou un build step lourd
-- renforcer la **maintenabilité** et la **lisibilité**
-- traiter le portfolio comme un vrai projet front, pas comme une simple page perso
 
 ## Architecture
 
@@ -28,8 +31,10 @@ portfolio-refactored/
 │   └── workflows/
 │       └── ci.yml
 ├── assets/
-│   └── css/
-│       └── main.css
+│   ├── css/
+│   │   └── main.css
+│   └── docs/
+│       └── README.md
 ├── src/
 │   └── js/
 │       ├── app.js
@@ -49,7 +54,8 @@ portfolio-refactored/
 │       │   ├── github-snapshot.js
 │       │   ├── modal.js
 │       │   ├── navigation.js
-│       │   └── playable-demo.js
+│       │   ├── playable-demo.js
+│       │   └── runtime-links.js
 │       ├── render/
 │       │   ├── projects.js
 │       │   └── translations.js
@@ -64,61 +70,14 @@ portfolio-refactored/
 │   ├── dom-test-helpers.js
 │   ├── github-snapshot.test.js
 │   ├── github.test.js
-│   └── modal-play.test.js
-├── .prettierignore
-├── .prettierrc.json
-├── eslint.config.js
+│   ├── modal-play.test.js
+│   └── runtime-links.test.js
 ├── index.html
-└── package.json
+├── package.json
+└── README.md
 ```
 
-## Ce qui a changé en V3
-
-### 1. Split du contenu
-
-Le gros `content.js` a été découpé en sous-modules :
-
-- `general.js`
-- `projects.js`
-- `experience.js`
-- `stack.js`
-- `about.js`
-- `play.js`
-- `config.js`
-
-Résultat : le contenu reste centralisé, mais il n'est plus monolithique.
-
-### 2. Validation du contenu
-
-`src/js/validation/content.js` vérifie :
-
-- la présence des champs requis pour chaque projet
-- la cohérence des IDs entre langues
-- l'absence de doublons
-- la structure minimale des listes et liens
-
-### 3. Tests renforcés
-
-Le projet inclut maintenant :
-
-- tests de cohérence des traductions
-- tests de validation structurelle du contenu
-- tests des helpers GitHub
-- tests DOM de rendu
-- tests de modal
-- tests du bloc GitHub snapshot
-- tests de la section Play
-
-### 4. Chaîne qualité minimale
-
-Le projet ajoute :
-
-- ESLint
-- Prettier
-- script `check`
-- GitHub Actions CI
-
-## Comment modifier le portfolio
+## Modifier le portfolio
 
 ### Modifier les projets mis en avant
 
@@ -146,6 +105,29 @@ Tu y trouveras notamment :
 
 - le username GitHub public
 - l'URL de la démo embarquée
+- le chemin public du CV
+- l'activation ou non du curseur custom
+
+## Où mettre le CV
+
+Le meilleur emplacement pour ce projet est :
+
+```text
+assets/docs/mathieu-alassoeur-cv.pdf
+```
+
+Pourquoi :
+
+- chemin stable pour un hébergement statique
+- facile à référencer dans le hero et la section contact
+- pas besoin de build step
+- simple à versionner si tu veux remplacer le PDF plus tard
+
+Le repo contient déjà :
+
+- `assets/docs/README.md`
+
+Tu n'as qu'à déposer ton vrai PDF dans ce dossier avec le bon nom.
 
 ## Lancer le projet en local
 
@@ -159,25 +141,24 @@ Puis ouvrir :
 http://localhost:8000
 ```
 
-## Lancer les tests
+## Qualité
 
-```bash
-node --test
-```
-
-ou :
-
-```bash
-npm test
-```
-
-## Lancer tous les checks
-
-Après installation des dépendances :
+Installer les dépendances :
 
 ```bash
 npm install
+```
+
+Lancer tous les checks :
+
+```bash
 npm run check
+```
+
+Formater le projet :
+
+```bash
+npm run format
 ```
 
 ## Déploiement
@@ -186,22 +167,14 @@ Le projet reste volontairement **sans build step** pour rester compatible avec u
 
 - GitHub Pages
 - Netlify
-- Vercel (mode statique)
+- Vercel en mode statique
 
-## Pourquoi cette approche est la bonne
+## Choix d'architecture
 
-Je déconseille ici une migration directe vers React ou Next.js. Ce portfolio n'a pas besoin d'une stack plus lourde pour devenir meilleur. La bonne décision est de garder :
+Je déconseille ici une migration directe vers React ou Next.js. Ce portfolio n'a pas besoin d'une stack plus lourde pour devenir meilleur. Le bon choix reste :
 
-- la simplicité d'un site statique
-- la qualité visuelle actuelle
-- une architecture plus rigoureuse
-- une base de tests et de validation crédible
-
-## Niveau actuel
-
-Cette V3 vise un portfolio :
-
-- plus propre à maintenir
-- plus crédible techniquement
-- plus facile à faire évoluer sans casser le rendu
-- plus défendable comme vrai projet front
+- simplicité d'un site statique
+- qualité visuelle actuelle
+- architecture plus rigoureuse
+- base de tests et de validation crédible
+- finition produit progressive

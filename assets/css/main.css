@@ -38,7 +38,6 @@ body {
   background: var(--white);
   color: var(--black);
   overflow-x: hidden;
-  cursor: none;
 }
 
 body.modal-open {
@@ -47,6 +46,12 @@ body.modal-open {
 
 a,
 button {
+  cursor: pointer;
+}
+
+body.custom-cursor-enabled,
+body.custom-cursor-enabled a,
+body.custom-cursor-enabled button {
   cursor: none;
 }
 
@@ -58,6 +63,7 @@ svg {
 
 .cursor {
   position: fixed;
+  display: none;
   top: 0;
   left: 0;
   width: 12px;
@@ -75,6 +81,7 @@ svg {
 
 .cursor-ring {
   position: fixed;
+  display: none;
   top: 0;
   left: 0;
   width: 36px;
@@ -88,6 +95,35 @@ svg {
     transform 0.35s ease,
     opacity 0.2s ease;
   transform: translate(-50%, -50%);
+}
+
+body.custom-cursor-enabled .cursor,
+body.custom-cursor-enabled .cursor-ring {
+  display: block;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1200;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: var(--indigo);
+  color: var(--white);
+  text-decoration: none;
+  transform: translateY(-140%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--terra);
+  outline-offset: 3px;
 }
 
 .scroll-bar {
