@@ -3,7 +3,7 @@ export function setupScrollBar() {
     const scrollable = document.body.scrollHeight - window.innerHeight;
     const percent = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
     document.getElementById('scrollBar').style.width = `${percent}%`;
-  });
+  }, { passive: true });
 }
 
 export function setupSectionReveal() {
@@ -46,5 +46,5 @@ export function setupActiveNav() {
   }
 
   updateActiveNav();
-  window.addEventListener('scroll', updateActiveNav);
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
 }

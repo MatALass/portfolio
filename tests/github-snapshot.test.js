@@ -53,19 +53,19 @@ test('fetchGitHubStats renders GitHub API data into the snapshot card', async ()
 
 test('fetchGitHubStats sets error state when API call fails', async () => {
   const { document, elements, FakeElement } = createFakeDocument(ids);
-
-  // Register a fake snapshot card so querySelector('.github-snapshot-card') finds it
   const snapshotCard = new FakeElement('snapshot-card', 'div');
   snapshotCard.classList.add('github-snapshot-card');
   elements.set('snapshot-card', snapshotCard);
-
   global.document = document;
 
-  const failingFetch = async () => {
-    throw new Error('Network error');
-  };
+  // Silence expected console.error
+  const originalError = console.error;
+  console.error = () => {};
 
+  const failingFetch = async () => { throw new Error('Network error'); };
   await fetchGitHubStats('en', (path) => translate('en', path), failingFetch);
+
+  console.error = originalError;
 
   assert.equal(elements.get('githubRepoCount').textContent, translate('en', 'github.unavailable'));
   assert.equal(elements.get('githubActiveRepoCount').textContent, translate('en', 'github.unavailable'));

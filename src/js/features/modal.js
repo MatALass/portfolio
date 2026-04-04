@@ -6,7 +6,33 @@ import {
   fillTags,
 } from '../render/projects.js';
 
+const FOCUSABLE_SELECTORS =
+  'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 let lastFocusedElement = null;
+
+function trapFocus(event) {
+  const modal = document.querySelector('.modal');
+  if (!modal) return;
+
+  const focusable = Array.from(modal.querySelectorAll(FOCUSABLE_SELECTORS));
+  if (focusable.length === 0) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (event.shiftKey) {
+    if (document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    }
+  } else {
+    if (document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+}
 
 export function openProjectModal(language, projectId, translate) {
   const project = getProjects(language).find(
@@ -38,6 +64,8 @@ export function openProjectModal(language, projectId, translate) {
 
   const closeButton = document.getElementById('modalCloseBtn');
   closeButton?.focus?.();
+
+  document.addEventListener('keydown', trapFocus);
 }
 
 export function closeProjectModal() {
@@ -45,6 +73,8 @@ export function closeProjectModal() {
   overlay.classList.remove('open');
   overlay.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('modal-open');
+
+  document.removeEventListener('keydown', trapFocus);
 
   lastFocusedElement?.focus?.();
 }
