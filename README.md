@@ -1,7 +1,7 @@
 # Portfolio — Mathieu Alassoeur
 
+![CI](https://github.com/MatALass/portfolio/actions/workflows/ci.yml/badge.svg?branch=main)
 ![Status](https://img.shields.io/badge/status-active-success)
-![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
 ![Lint](https://img.shields.io/badge/lint-eslint-blue)
 ![Format](https://img.shields.io/badge/format-prettier-ff69b4)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)

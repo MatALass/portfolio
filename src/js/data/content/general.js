@@ -66,9 +66,6 @@ export const generalTranslations = {
       activeLabel: 'Repos active in last 180 days',
       activeSub: 'A signal of current iteration, not just archive history.',
       flagshipLabel: 'Flagship data / engineering repo',
-      flagshipRepo: 'github-portfolio-auditor',
-      flagshipMeta:
-        'Python · Streamlit · GitHub API · policy-driven scoring · tests',
       latestLabel: 'Most recently updated repo',
       latestSubLoading: 'Checking current public activity...',
       loading: 'Loading...',
@@ -173,9 +170,6 @@ export const generalTranslations = {
       activeLabel: 'Repos actifs sur 180 jours',
       activeSub: 'Un signal d’itération récente, pas seulement d’archives.',
       flagshipLabel: 'Repository data / engineering principal',
-      flagshipRepo: 'github-portfolio-auditor',
-      flagshipMeta:
-        'Python · Streamlit · GitHub API · scoring piloté par règles · tests',
       latestLabel: 'Repository mis à jour le plus récemment',
       latestSubLoading: 'Vérification de l’activité publique en cours...',
       loading: 'Chargement...',

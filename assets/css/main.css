@@ -1719,3 +1719,16 @@ footer {
     opacity: 1 !important;
   }
 }
+
+/* GitHub snapshot error state */
+.github-snapshot--error {
+  border-color: var(--terra-light);
+  background: var(--terra-pale);
+}
+
+.github-snapshot--error .github-snapshot-title::after {
+  content: ' — data temporarily unavailable';
+  font-size: 0.75rem;
+  color: var(--terra);
+  font-family: var(--font-mono);
+}

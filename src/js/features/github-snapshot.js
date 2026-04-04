@@ -1,4 +1,4 @@
-import { GITHUB_USERNAME } from '../data/config.js';
+import { GITHUB_USERNAME, FLAGSHIP_REPO, FLAGSHIP_META } from '../data/config.js';
 import { formatGithubDate, summarizeGitHubRepos } from '../utils/github.js';
 
 function setGitHubSnapshotState({
@@ -8,6 +8,7 @@ function setGitHubSnapshotState({
   latestDate,
   flagshipRepo,
   flagshipMeta,
+  isError = false,
 }) {
   document.getElementById('githubRepoCount').textContent = repoCount;
   document.getElementById('githubActiveRepoCount').textContent = activeCount;
@@ -15,14 +16,19 @@ function setGitHubSnapshotState({
   document.getElementById('githubFlagshipMeta').textContent = flagshipMeta;
   document.getElementById('githubLatestRepo').textContent = latestRepo;
   document.getElementById('githubLatestDate').textContent = latestDate;
+
+  const card = document.querySelector('.github-snapshot-card');
+  if (card) {
+    card.classList.toggle('github-snapshot--error', isError);
+  }
 }
 
 export async function fetchGitHubStats(language, translate, fetchImpl = fetch) {
   setGitHubSnapshotState({
     repoCount: translate('github.loading'),
     activeCount: translate('github.loading'),
-    flagshipRepo: translate('github.flagshipRepo'),
-    flagshipMeta: translate('github.flagshipMeta'),
+    flagshipRepo: FLAGSHIP_REPO,
+    flagshipMeta: FLAGSHIP_META,
     latestRepo: translate('github.loading'),
     latestDate: translate('github.latestSubLoading'),
   });
@@ -31,8 +37,8 @@ export async function fetchGitHubStats(language, translate, fetchImpl = fetch) {
     setGitHubSnapshotState({
       repoCount: translate('github.setUsername'),
       activeCount: translate('github.setUsername'),
-      flagshipRepo: translate('github.flagshipRepo'),
-      flagshipMeta: translate('github.flagshipMeta'),
+      flagshipRepo: FLAGSHIP_REPO,
+      flagshipMeta: FLAGSHIP_META,
       latestRepo: translate('github.setUsername'),
       latestDate: translate('github.replaceUsername'),
     });
@@ -61,8 +67,8 @@ export async function fetchGitHubStats(language, translate, fetchImpl = fetch) {
       setGitHubSnapshotState({
         repoCount: String(user.public_repos ?? translate('github.unavailable')),
         activeCount: '0',
-        flagshipRepo: translate('github.flagshipRepo'),
-        flagshipMeta: translate('github.flagshipMeta'),
+        flagshipRepo: FLAGSHIP_REPO,
+        flagshipMeta: FLAGSHIP_META,
         latestRepo: translate('github.noRepos'),
         latestDate: translate('github.nothingFound'),
       });
@@ -74,8 +80,8 @@ export async function fetchGitHubStats(language, translate, fetchImpl = fetch) {
     setGitHubSnapshotState({
       repoCount: String(user.public_repos ?? translate('github.unavailable')),
       activeCount: String(summary.activeCount),
-      flagshipRepo: translate('github.flagshipRepo'),
-      flagshipMeta: translate('github.flagshipMeta'),
+      flagshipRepo: FLAGSHIP_REPO,
+      flagshipMeta: FLAGSHIP_META,
       latestRepo: summary.latestRepoName || translate('github.unavailable'),
       latestDate: summary.latestPushedAt
         ? `${translate('github.updatedOn')} ${formatGithubDate(summary.latestPushedAt, language)}`
@@ -85,10 +91,11 @@ export async function fetchGitHubStats(language, translate, fetchImpl = fetch) {
     setGitHubSnapshotState({
       repoCount: translate('github.unavailable'),
       activeCount: translate('github.unavailable'),
-      flagshipRepo: translate('github.flagshipRepo'),
-      flagshipMeta: translate('github.flagshipMeta'),
+      flagshipRepo: FLAGSHIP_REPO,
+      flagshipMeta: FLAGSHIP_META,
       latestRepo: translate('github.unavailable'),
       latestDate: translate('github.nothingFound'),
+      isError: true,
     });
     console.error('GitHub stats error:', error);
   }
