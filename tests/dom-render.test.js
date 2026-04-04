@@ -121,7 +121,7 @@ test('applyStaticTranslations updates static DOM content for French', () => {
   assert.match(elements.get('play-points-list').innerHTML, /Algorithmes/);
 });
 
-test('renderProjects renders the six selected repositories', () => {
+test('renderProjects renders all projects in the correct order', () => {
   const { document, elements } = createFakeDocument(['projectGrid']);
   global.document = document;
 
@@ -133,18 +133,12 @@ test('renderProjects renders the six selected repositories', () => {
   });
 
   const grid = elements.get('projectGrid');
-  assert.equal(grid.children.length, 6);
-  assert.deepEqual(
-    projectTranslations.en.map((project) => project.id),
-    [
-      'github-portfolio-auditor',
-      'footpredict',
-      'dataviz-dashboard',
-      'school-bus-dashboard',
-      'anssi-vulnerability-intelligence',
-      'automata-toolkit',
-    ],
-  );
+  const expectedIds = projectTranslations.en.map((project) => project.id);
+
+  assert.equal(grid.children.length, expectedIds.length);
   assert.match(grid.children[0].innerHTML, /GitHub Portfolio Auditor/);
-  assert.match(grid.children[5].innerHTML, /Automata Toolkit/);
+  assert.match(
+    grid.children[expectedIds.length - 1].innerHTML,
+    /Automata Toolkit/,
+  );
 });

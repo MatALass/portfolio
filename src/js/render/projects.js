@@ -1,13 +1,13 @@
 import { projectTranslations } from '../data/content/index.js';
+import { escapeHtml } from '../utils/escape.js';
 
 export function getProjects(language) {
   return projectTranslations[language];
 }
 
-function escapeHtml(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
+
+export function getProjects(language) {
+  return projectTranslations[language];
 }
 
 export function createProjectCard(project, labels) {
@@ -95,16 +95,7 @@ export function fillLinks(links) {
   const element = document.getElementById('modalLinks');
   element.innerHTML = links
     .map(
-      ([label, href, primary], index) => `
-        
-          class="modal-link ${index === 0 && primary ? 'primary' : ''}"
-          href="${escapeHtml(href)}"
-          target="_blank"
-          rel="noreferrer"
-        <a>
-          ${escapeHtml(label)}
-        </a>
-      `,
+      ([label, href, primary], index) => `<a class="modal-link ${index === 0 && primary ? 'primary' : ''}" href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`,
     )
     .join('');
-}
+} 

@@ -1,5 +1,6 @@
 import { translations } from '../data/content/index.js';
 import { getNestedValue } from '../utils/path.js';
+import { escapeHtml } from '../utils/escape.js';
 
 export function translate(language, path) {
   return getNestedValue(translations[language], path);
@@ -9,23 +10,19 @@ export function fillSimpleList(elementId, items) {
   const element = document.getElementById(elementId);
   if (!element) return;
   element.innerHTML = items
-    .map((item) => {
-      const div = document.createElement('div');
-      div.textContent = item;
-      return `<li>${div.innerHTML}</li>`;
-    })
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
     .join('');
 }
 
-export function applyStaticTranslations(language) {
+function applyMeta(language) {
   document.documentElement.lang = language;
   document.title = translations[language].pageTitle;
   document
     .querySelector('meta[name="description"]')
     .setAttribute('content', translations[language].metaDescription);
+}
 
-  const t = (path) => translate(language, path);
-
+function applyContentMap(t) {
   const contentMap = {
     'nav-projects': t('nav.projects'),
     'nav-experience': t('nav.experience'),
@@ -93,7 +90,9 @@ export function applyStaticTranslations(language) {
     const element = document.getElementById(id);
     if (element) element.textContent = value;
   }
+}
 
+function applyHtmlMap(language, t) {
   const htmlMap = {
     'projects-title-text': t('sections.projectsTitle'),
     'experience-title-text': t('sections.experienceTitle'),
@@ -101,7 +100,7 @@ export function applyStaticTranslations(language) {
     'about-title-text': t('sections.aboutTitle'),
     'play-title-text': t('play.title'),
     'about-copy-block': translations[language].about.paragraphs
-      .map((paragraph) => `<p>${paragraph}</p>`)
+      .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
       .join(''),
   };
 
@@ -109,18 +108,20 @@ export function applyStaticTranslations(language) {
     const element = document.getElementById(id);
     if (element) element.innerHTML = value;
   }
+}
 
+function applyAbout(language, t) {
   document.getElementById('about-quote-line').textContent =
     translations[language].about.quote;
   document.getElementById('play-placeholder-copy-text').textContent = t(
     'play.placeholderCopy',
   );
-  document.getElementById('play-points-list').innerHTML = translations[
-    language
-  ].play.points
-    .map((item) => `<div class="play-point">${item}</div>`)
+  document.getElementById('play-points-list').innerHTML = translations[language]
+    .play.points.map((item) => `<div class="play-point">${escapeHtml(item)}</div>`)
     .join('');
+}
 
+function applyExperience(language) {
   const experienceOne = translations[language].experience.one;
   document.getElementById('exp-1-date').textContent = experienceOne.date;
   document.getElementById('exp-1-role').textContent = experienceOne.role;
@@ -134,7 +135,9 @@ export function applyStaticTranslations(language) {
   document.getElementById('exp-2-org').textContent = experienceTwo.org;
   document.getElementById('exp-2-copy').textContent = experienceTwo.copy;
   fillSimpleList('exp-2-points', experienceTwo.points);
+}
 
+function applyStack(language) {
   const stack = translations[language].stack;
   document.getElementById('stack-card-1-title').textContent = stack.card1Title;
   document.getElementById('stack-data-label').textContent = stack.dataLabel;
@@ -147,9 +150,11 @@ export function applyStaticTranslations(language) {
   document.getElementById('stack-work-copy').textContent = stack.workCopy;
   document.getElementById('stack-card-2-title').textContent = stack.card2Title;
   document.getElementById('strength-list').innerHTML = stack.strengths
-    .map((item) => `<li>${item}</li>`)
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
     .join('');
+}
 
+function applyControls(language, t) {
   const toggle = document.getElementById('langToggle');
   toggle.textContent = translations[language].languageButton;
   toggle.setAttribute('aria-label', translations[language].switchTo);
@@ -157,4 +162,16 @@ export function applyStaticTranslations(language) {
   document
     .getElementById('modalCloseBtn')
     .setAttribute('aria-label', t('modal.closeAria'));
+}
+
+export function applyStaticTranslations(language) {
+  const t = (path) => translate(language, path);
+
+  applyMeta(language);
+  applyContentMap(t);
+  applyHtmlMap(language, t);
+  applyAbout(language, t);
+  applyExperience(language);
+  applyStack(language);
+  applyControls(language, t);
 }
