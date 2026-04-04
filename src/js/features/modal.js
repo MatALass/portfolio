@@ -11,6 +11,11 @@ const FOCUSABLE_SELECTORS =
 
 let lastFocusedElement = null;
 
+const CAN_LISTEN_ON_DOCUMENT =
+  typeof document !== 'undefined' &&
+  typeof document.addEventListener === 'function' &&
+  typeof document.removeEventListener === 'function';
+
 function trapFocus(event) {
   const modal = document.querySelector('.modal');
   if (!modal) return;
@@ -65,7 +70,9 @@ export function openProjectModal(language, projectId, translate) {
   const closeButton = document.getElementById('modalCloseBtn');
   closeButton?.focus?.();
 
-  document.addEventListener('keydown', trapFocus);
+  if (CAN_LISTEN_ON_DOCUMENT) {
+    document.addEventListener('keydown', trapFocus);
+  }
 }
 
 export function closeProjectModal() {
@@ -74,7 +81,9 @@ export function closeProjectModal() {
   overlay.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('modal-open');
 
-  document.removeEventListener('keydown', trapFocus);
+  if (CAN_LISTEN_ON_DOCUMENT) {
+    document.removeEventListener('keydown', trapFocus);
+  }
 
   lastFocusedElement?.focus?.();
 }

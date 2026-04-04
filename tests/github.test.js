@@ -50,9 +50,7 @@ test('summarizeGitHubRepos ignores repos without pushed_at', () => {
 
 test('summarizeGitHubRepos returns zero active when all repos are stale', () => {
   const now = new Date('2026-04-04T12:00:00Z').getTime();
-  const repos = [
-    { name: 'old', pushed_at: '2020-01-01T00:00:00Z' },
-  ];
+  const repos = [{ name: 'old', pushed_at: '2020-01-01T00:00:00Z' }];
   const summary = summarizeGitHubRepos(repos, now);
   assert.equal(summary.activeCount, 0);
   assert.equal(summary.latestRepoName, 'old');

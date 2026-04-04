@@ -116,8 +116,10 @@ function applyAbout(language, t) {
   document.getElementById('play-placeholder-copy-text').textContent = t(
     'play.placeholderCopy',
   );
-  document.getElementById('play-points-list').innerHTML = translations[language]
-    .play.points.map((item) => `<div class="play-point">${escapeHtml(item)}</div>`)
+  document.getElementById('play-points-list').innerHTML = translations[
+    language
+  ].play.points
+    .map((item) => `<div class="play-point">${escapeHtml(item)}</div>`)
     .join('');
 }
 

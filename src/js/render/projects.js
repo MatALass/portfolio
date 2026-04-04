@@ -5,7 +5,6 @@ export function getProjects(language) {
   return projectTranslations[language];
 }
 
-
 export function createProjectCard(project, labels) {
   const card = document.createElement('article');
   card.className = 'project-card';
@@ -63,7 +62,9 @@ export function renderProjects(language, labels) {
 
 export function fillList(elementId, items) {
   const element = document.getElementById(elementId);
-  element.innerHTML = items.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
+  element.innerHTML = items
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .join('');
 }
 
 export function fillTags(tags) {
@@ -91,7 +92,8 @@ export function fillLinks(links) {
   const element = document.getElementById('modalLinks');
   element.innerHTML = links
     .map(
-      ([label, href, primary], index) => `<a class="modal-link ${index === 0 && primary ? 'primary' : ''}" href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`,
+      ([label, href, primary], index) =>
+        `<a class="modal-link ${index === 0 && primary ? 'primary' : ''}" href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`,
     )
     .join('');
-} 
+}

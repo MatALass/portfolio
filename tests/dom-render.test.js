@@ -122,19 +122,14 @@ test('applyStaticTranslations updates static DOM content for French', () => {
 });
 
 test('applyStaticTranslations updates static DOM content for English', () => {
-  const { document, elements, metaDescription } = createFakeDocument(
-    translationElementIds,
-  );
+  const { document, elements } = createFakeDocument(translationElementIds);
   global.document = document;
 
   applyStaticTranslations('en');
 
   assert.equal(document.documentElement.lang, 'en');
   assert.equal(elements.get('nav-projects').textContent, 'Projects');
-  assert.match(
-    elements.get('projects-title-text').innerHTML,
-    /how I think/,
-  );
+  assert.match(elements.get('projects-title-text').innerHTML, /how I think/);
   assert.equal(elements.get('langToggle').textContent, 'EN');
 });
 

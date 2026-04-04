@@ -76,6 +76,7 @@ npm run check
 ```
 
 Includes:
+
 - Unit tests
 - DOM tests
 - Linting
@@ -102,7 +103,7 @@ assets/docs/mathieu-alassoeur-cv.pdf
 ## Author
 
 Mathieu Alassoeur  
-Data Analyst / Analytics Engineer  
+Data Analyst / Analytics Engineer
 
 ---
 

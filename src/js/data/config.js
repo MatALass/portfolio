@@ -4,7 +4,8 @@ export const SITE_CONFIG = {
   cvFilePath: './assets/docs/mathieu-alassoeur-cv.pdf',
   enableCustomCursor: false,
   flagshipRepo: 'github-portfolio-auditor',
-  flagshipMeta: 'Python · Streamlit · GitHub API · policy-driven scoring · tests',
+  flagshipMeta:
+    'Python · Streamlit · GitHub API · policy-driven scoring · tests',
 };
 
 export const GITHUB_USERNAME = SITE_CONFIG.githubUsername;

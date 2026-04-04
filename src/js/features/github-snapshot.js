@@ -1,4 +1,8 @@
-import { GITHUB_USERNAME, FLAGSHIP_REPO, FLAGSHIP_META } from '../data/config.js';
+import {
+  GITHUB_USERNAME,
+  FLAGSHIP_REPO,
+  FLAGSHIP_META,
+} from '../data/config.js';
 import { formatGithubDate, summarizeGitHubRepos } from '../utils/github.js';
 
 function setGitHubSnapshotState({
