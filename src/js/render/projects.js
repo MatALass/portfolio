@@ -6,10 +6,6 @@ export function getProjects(language) {
 }
 
 
-export function getProjects(language) {
-  return projectTranslations[language];
-}
-
 export function createProjectCard(project, labels) {
   const card = document.createElement('article');
   card.className = 'project-card';

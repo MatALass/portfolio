@@ -121,6 +121,23 @@ test('applyStaticTranslations updates static DOM content for French', () => {
   assert.match(elements.get('play-points-list').innerHTML, /Algorithmes/);
 });
 
+test('applyStaticTranslations updates static DOM content for English', () => {
+  const { document, elements, metaDescription } = createFakeDocument(
+    translationElementIds,
+  );
+  global.document = document;
+
+  applyStaticTranslations('en');
+
+  assert.equal(document.documentElement.lang, 'en');
+  assert.equal(elements.get('nav-projects').textContent, 'Projects');
+  assert.match(
+    elements.get('projects-title-text').innerHTML,
+    /how I think/,
+  );
+  assert.equal(elements.get('langToggle').textContent, 'EN');
+});
+
 test('renderProjects renders all projects in the correct order', () => {
   const { document, elements } = createFakeDocument(['projectGrid']);
   global.document = document;
