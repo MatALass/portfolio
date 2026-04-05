@@ -33,7 +33,10 @@ function trapFocus(event) {
       event.preventDefault();
       last.focus();
     }
-  } else if (document.activeElement === last) {
+    return;
+  }
+
+  if (document.activeElement === last) {
     event.preventDefault();
     first.focus();
   }
@@ -64,7 +67,9 @@ export function openProjectModal(language, projectId, translate) {
 
   const overlay = document.getElementById('projectModalOverlay');
   overlay.hidden = false;
+  overlay.setAttribute('aria-hidden', 'false');
   overlay.classList.add('open');
+
   document.body.classList.add('modal-open');
 
   const closeButton = document.getElementById('modalCloseBtn');
@@ -79,6 +84,8 @@ export function closeProjectModal() {
   const overlay = document.getElementById('projectModalOverlay');
   overlay.classList.remove('open');
   overlay.hidden = true;
+  overlay.setAttribute('aria-hidden', 'true');
+
   document.body.classList.remove('modal-open');
 
   if (CAN_LISTEN_ON_DOCUMENT) {
