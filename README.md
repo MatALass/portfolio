@@ -1,7 +1,7 @@
 # Portfolio — Mathieu Alassoeur
 
 [![CI](https://github.com/MatALass/portfolio/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MatALass/portfolio/actions/workflows/ci.yml)
-![Build](https://github.com/MatALass/portfolio/actions/workflows/ci.yml/badge.svg?branch=main&label=build)
+[![Build](https://github.com/MatALass/portfolio/actions/workflows/ci.yml/badge.svg?branch=main&label=build)](https://github.com/MatALass/portfolio/actions/workflows/ci.yml)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 **Live:** [final-portfolio-eosin-seven.vercel.app](https://final-portfolio-eosin-seven.vercel.app/)
