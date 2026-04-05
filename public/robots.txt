@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://final-portfolio-eosin-seven.vercel.app/sitemap.xml

@@ -5,6 +5,16 @@ import {
 } from '../data/config.js';
 import { formatGithubDate, summarizeGitHubRepos } from '../utils/github.js';
 
+// import.meta.env is undefined in Node test runner — guard before access
+const GITHUB_TOKEN =
+  typeof import.meta.env !== 'undefined'
+    ? import.meta.env.VITE_GITHUB_TOKEN
+    : undefined;
+
+function githubHeaders() {
+  return GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : {};
+}
+
 function setGitHubSnapshotState({
   repoCount,
   activeCount,
@@ -50,12 +60,15 @@ export async function fetchGitHubStats(language, translate, fetchImpl = fetch) {
   }
 
   try {
+    const headers = githubHeaders();
     const [userResponse, reposResponse] = await Promise.all([
       fetchImpl(
         `https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}`,
+        { headers },
       ),
       fetchImpl(
         `https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}/repos?per_page=100&sort=updated`,
+        { headers },
       ),
     ]);
 
