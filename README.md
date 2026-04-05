@@ -1,6 +1,6 @@
 # Portfolio — Mathieu Alassoeur
 
-![CI](https://github.com/MatALass/portfolio/actions/workflows/ci.yml/badge.svg?branch=main)
+[![CI](https://github.com/MatALass/portfolio/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MatALass/portfolio/actions/workflows/ci.yml)
 ![Build](https://github.com/MatALass/portfolio/actions/workflows/ci.yml/badge.svg?branch=main&label=build)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
