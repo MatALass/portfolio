@@ -1732,3 +1732,7 @@ footer {
   color: var(--terra);
   font-family: var(--font-mono);
 }
+
+.modal-overlay[hidden] {
+  display: none !important;
+}

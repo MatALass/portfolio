@@ -67,7 +67,7 @@ export function openProjectModal(language, projectId, translate) {
 
   const overlay = document.getElementById('projectModalOverlay');
   overlay.hidden = false;
-  overlay.setAttribute('aria-hidden', 'false');
+  overlay.inert = false;
   overlay.classList.add('open');
 
   document.body.classList.add('modal-open');
@@ -83,8 +83,8 @@ export function openProjectModal(language, projectId, translate) {
 export function closeProjectModal() {
   const overlay = document.getElementById('projectModalOverlay');
   overlay.classList.remove('open');
+  overlay.inert = true;
   overlay.hidden = true;
-  overlay.setAttribute('aria-hidden', 'true');
 
   document.body.classList.remove('modal-open');
 

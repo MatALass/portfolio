@@ -41,6 +41,10 @@ test('openProjectModal fills content, toggles modal state, and focuses the close
   };
   global.document = document;
 
+  const overlay = elements.get('projectModalOverlay');
+  overlay.hidden = true;
+  overlay.inert = true;
+
   openProjectModal('en', 'automata-toolkit', (path) => translate('en', path));
 
   assert.equal(
@@ -56,20 +60,18 @@ test('openProjectModal fills content, toggles modal state, and focuses the close
     elements.get('modalLinks').innerHTML,
     /github.com\/MatALass\/automata-toolkit/,
   );
-  assert.ok(elements.get('projectModalOverlay').classList.contains('open'));
-  assert.equal(
-    elements.get('projectModalOverlay').attributes['aria-hidden'],
-    'false',
-  );
+
+  assert.ok(overlay.classList.contains('open'));
+  assert.equal(overlay.hidden, false);
+  assert.equal(overlay.inert, false);
   assert.ok(document.body.classList.contains('modal-open'));
   assert.equal(elements.get('modalCloseBtn').focused, true);
 
   closeProjectModal();
-  assert.ok(!elements.get('projectModalOverlay').classList.contains('open'));
-  assert.equal(
-    elements.get('projectModalOverlay').attributes['aria-hidden'],
-    'true',
-  );
+
+  assert.ok(!overlay.classList.contains('open'));
+  assert.equal(overlay.hidden, true);
+  assert.equal(overlay.inert, true);
   assert.ok(!document.body.classList.contains('modal-open'));
 });
 
