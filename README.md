@@ -8,7 +8,7 @@
 
 ---
 
-![Portfolio preview](assets/og-image.svg)
+![Portfolio preview](assets/preview.png)
 
 ---
 
