@@ -2,9 +2,7 @@
   "name": "mathieu-portfolio-refactored",
   "private": true,
   "type": "module",
-  "engines": {
-    "node": ">=20"
-  },
+ "engines": { "node": "20.x" },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
