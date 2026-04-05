@@ -15,8 +15,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - name: Install all dependencies
-        run: npm install --include=dev
+      - run: npm ci
       - run: npm run check
 
   build:
@@ -29,8 +28,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - name: Install all dependencies
-        run: npm install --include=dev
+      - run: npm ci
       - run: npm run build
       - name: Verify dist output
         run: |
