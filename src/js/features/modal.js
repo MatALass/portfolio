@@ -17,6 +17,8 @@ const CAN_LISTEN_ON_DOCUMENT =
   typeof document.removeEventListener === 'function';
 
 function trapFocus(event) {
+  if (event.key !== 'Tab') return;
+
   const modal = document.querySelector('.modal');
   if (!modal) return;
 
@@ -31,11 +33,9 @@ function trapFocus(event) {
       event.preventDefault();
       last.focus();
     }
-  } else {
-    if (document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
-    }
+  } else if (document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
   }
 }
 
@@ -63,8 +63,8 @@ export function openProjectModal(language, projectId, translate) {
   fillList('modalProof', project.proof);
 
   const overlay = document.getElementById('projectModalOverlay');
+  overlay.hidden = false;
   overlay.classList.add('open');
-  overlay.setAttribute('aria-hidden', 'false');
   document.body.classList.add('modal-open');
 
   const closeButton = document.getElementById('modalCloseBtn');
@@ -78,7 +78,7 @@ export function openProjectModal(language, projectId, translate) {
 export function closeProjectModal() {
   const overlay = document.getElementById('projectModalOverlay');
   overlay.classList.remove('open');
-  overlay.setAttribute('aria-hidden', 'true');
+  overlay.hidden = true;
   document.body.classList.remove('modal-open');
 
   if (CAN_LISTEN_ON_DOCUMENT) {
