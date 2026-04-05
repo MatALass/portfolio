@@ -81,7 +81,7 @@ test('setupPlayableDemo uses the configured live URL for iframe and links', () =
 
   assert.equal(
     elements.get('morpionFrame').src,
-    'https://matalass.github.io/morpion-ultime/',
+    'https://morpion-ultime.vercel.app/',
   );
   assert.equal(elements.get('morpionFrame').style.display, 'block');
   assert.equal(elements.get('morpionFrame').loading, 'lazy');
@@ -92,14 +92,14 @@ test('setupPlayableDemo uses the configured live URL for iframe and links', () =
   assert.equal(elements.get('playPlaceholder').style.display, 'none');
   assert.equal(
     elements.get('play-browser-url').textContent,
-    'https://matalass.github.io/morpion-ultime/',
+    'https://morpion-ultime.vercel.app/',
   );
   assert.equal(
     elements.get('play-browser-open').href,
-    'https://matalass.github.io/morpion-ultime/',
+    'https://morpion-ultime.vercel.app/',
   );
   assert.equal(
     elements.get('play-live-link').href,
-    'https://matalass.github.io/morpion-ultime/',
+    'https://morpion-ultime.vercel.app/',
   );
 });

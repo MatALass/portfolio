@@ -32,5 +32,5 @@ export function setupPlayableDemo(translate) {
 
   if (browserUrl) browserUrl.textContent = translate('play.embedHint');
   if (browserOpen)
-    browserOpen.href = 'https://github.com/MatALass/morpion-ultime';
+    browserOpen.href = 'https://morpion-ultime.vercel.app/';
 }
