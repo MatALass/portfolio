@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": "20.x"
+    "node": ">=20"
   },
   "scripts": {
     "dev": "vite",
@@ -17,7 +17,9 @@
   },
   "devDependencies": {
     "eslint": "^9.24.0",
-    "prettier": "^3.8.1",
+    "prettier": "^3.8.1"
+  },
+  "dependencies": {
     "vite": "^5.4.0"
   }
 }
