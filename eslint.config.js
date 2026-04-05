@@ -1,6 +1,7 @@
 export default [
+  // ── Source files ──────────────────────────────────────────────────────────
   {
-    files: ['src/**/*.js', 'tests/**/*.js', 'eslint.config.js'],
+    files: ['src/**/*.js', 'eslint.config.js', 'vite.config.js'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -12,13 +13,44 @@ export default [
         IntersectionObserver: 'readonly',
         requestAnimationFrame: 'readonly',
         console: 'readonly',
+        URL: 'readonly',
       },
     },
     rules: {
       'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       eqeqeq: ['error', 'always'],
+      'no-shadow': 'error',
+      'no-undef': 'error',
       'prefer-const': 'error',
       'object-shorthand': ['error', 'always'],
+      'no-var': 'error',
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'sort-imports': ['warn', { ignoreDeclarationSort: true }],
+    },
+  },
+
+  // ── Test files ────────────────────────────────────────────────────────────
+  {
+    files: ['tests/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        global: 'writable',
+        console: 'readonly',
+        URL: 'readonly',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      eqeqeq: ['error', 'always'],
+      'no-shadow': 'error',
+      'no-undef': 'error',
+      'prefer-const': 'error',
+      'object-shorthand': ['error', 'always'],
+      'no-var': 'error',
+      'no-console': 'off',
+      'sort-imports': 'off',
     },
   },
 ];

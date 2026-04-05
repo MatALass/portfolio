@@ -1,9 +1,9 @@
 import {
-  getProjects,
-  fillList,
   fillLinks,
+  fillList,
   fillMeta,
   fillTags,
+  getProjects,
 } from '../render/projects.js';
 
 const FOCUSABLE_SELECTORS =

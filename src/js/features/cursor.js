@@ -1,10 +1,27 @@
 import { ENABLE_CUSTOM_CURSOR } from '../data/config.js';
 
-export function setupCustomCursor() {
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('ring');
+/**
+ * Injects cursor DOM nodes at runtime only when the cursor is enabled.
+ * This replaces the previously static markup in index.html which was dead
+ * code whenever ENABLE_CUSTOM_CURSOR = false.
+ */
+function injectCursorElements() {
+  const cursor = document.createElement('div');
+  cursor.className = 'cursor';
+  cursor.id = 'cursor';
 
-  if (!ENABLE_CUSTOM_CURSOR || !cursor || !ring) {
+  const ring = document.createElement('div');
+  ring.className = 'cursor-ring';
+  ring.id = 'ring';
+
+  document.body.prepend(ring);
+  document.body.prepend(cursor);
+
+  return { cursor, ring };
+}
+
+export function setupCustomCursor() {
+  if (!ENABLE_CUSTOM_CURSOR) {
     document.body.classList.remove('custom-cursor-enabled');
     return false;
   }
@@ -20,6 +37,8 @@ export function setupCustomCursor() {
     document.body.classList.remove('custom-cursor-enabled');
     return false;
   }
+
+  const { cursor, ring } = injectCursorElements();
 
   document.body.classList.add('custom-cursor-enabled');
 

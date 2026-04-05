@@ -1,7 +1,7 @@
 import {
-  GITHUB_USERNAME,
-  FLAGSHIP_REPO,
   FLAGSHIP_META,
+  FLAGSHIP_REPO,
+  GITHUB_USERNAME,
 } from '../data/config.js';
 import { formatGithubDate, summarizeGitHubRepos } from '../utils/github.js';
 

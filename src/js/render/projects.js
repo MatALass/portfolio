@@ -5,50 +5,92 @@ export function getProjects(language) {
   return projectTranslations[language];
 }
 
+/**
+ * Create a text node safely — no innerHTML risk.
+ */
+function text(str) {
+  return document.createTextNode(String(str));
+}
+
+/**
+ * Create an element with optional className and append children (strings or nodes).
+ */
+function el(tag, className, ...children) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  for (const child of children) {
+    node.appendChild(typeof child === 'string' ? text(child) : child);
+  }
+  return node;
+}
+
+/**
+ * Create a <span class="tag"> safely.
+ */
+function tagSpan(label) {
+  return el('span', 'tag', label);
+}
+
+/**
+ * Build a .mini-meta-row element without innerHTML.
+ */
+function miniMetaRow(labelStr, valueStr) {
+  const row = document.createElement('div');
+  row.className = 'mini-meta-row';
+  row.appendChild(el('span', null, labelStr));
+  row.appendChild(el('div', null, valueStr));
+  return row;
+}
+
 export function createProjectCard(project, labels) {
   const card = document.createElement('article');
   card.className = 'project-card';
 
-  // Safe text nodes for all user-controlled fields
-  const title = escapeHtml(project.title);
-  const badge = escapeHtml(project.badge);
-  const shortPitch = escapeHtml(project.shortPitch);
-  const shortDescription = escapeHtml(project.shortDescription);
-  const focus = escapeHtml(project.focus);
-  const stack = escapeHtml(project.stack);
-  const status = escapeHtml(project.status);
-  const projectId = escapeHtml(project.id);
-  const githubHref = escapeHtml(project.links[0][1]);
-  const githubLabel = escapeHtml(project.links[0][0]);
-  const openCase = escapeHtml(labels.openCase);
-  const focusLabel = escapeHtml(labels.focusLabel);
-  const stackLabel = escapeHtml(labels.stackLabel);
-  const statusLabel = escapeHtml(labels.statusLabel);
+  // Top row: title + badge
+  const top = document.createElement('div');
+  top.className = 'project-top';
+  top.appendChild(el('div', 'project-name', project.title));
+  const badge = el('div', `project-badge ${project.badgeClass}`, project.badge);
+  top.appendChild(badge);
+  card.appendChild(top);
 
-  card.innerHTML = `
-    <div class="project-top">
-      <div class="project-name">${title}</div>
-      <div class="project-badge ${escapeHtml(project.badgeClass)}">${badge}</div>
-    </div>
+  // Pitch + description
+  card.appendChild(el('div', 'project-pitch', project.shortPitch));
+  card.appendChild(el('p', 'project-desc', project.shortDescription));
 
-    <div class="project-pitch">${shortPitch}</div>
-    <p class="project-desc">${shortDescription}</p>
+  // Mini meta
+  const miniMeta = document.createElement('div');
+  miniMeta.className = 'project-mini-meta';
+  miniMeta.appendChild(miniMetaRow(labels.focusLabel, project.focus));
+  miniMeta.appendChild(miniMetaRow(labels.stackLabel, project.stack));
+  miniMeta.appendChild(miniMetaRow(labels.statusLabel, project.status));
+  card.appendChild(miniMeta);
 
-    <div class="project-mini-meta">
-      <div class="mini-meta-row"><span>${focusLabel}</span><div>${focus}</div></div>
-      <div class="mini-meta-row"><span>${stackLabel}</span><div>${stack}</div></div>
-      <div class="mini-meta-row"><span>${statusLabel}</span><div>${status}</div></div>
-    </div>
+  // Tags
+  const tags = document.createElement('div');
+  tags.className = 'tags';
+  for (const tag of project.tags) tags.appendChild(tagSpan(tag));
+  card.appendChild(tags);
 
-    <div class="tags">
-      ${project.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join('')}
-    </div>
+  // Actions
+  const actions = document.createElement('div');
+  actions.className = 'project-actions';
 
-    <div class="project-actions">
-      <button class="card-action" data-project-id="${projectId}">${openCase}</button>
-      <a class="project-link-inline" href="${githubHref}" target="_blank" rel="noreferrer">${githubLabel}</a>
-    </div>
-  `;
+  const openBtn = document.createElement('button');
+  openBtn.className = 'card-action';
+  openBtn.dataset.projectId = project.id;
+  openBtn.appendChild(text(labels.openCase));
+  actions.appendChild(openBtn);
+
+  const githubLink = document.createElement('a');
+  githubLink.className = 'project-link-inline';
+  githubLink.href = project.links[0][1];
+  githubLink.target = '_blank';
+  githubLink.rel = 'noreferrer';
+  githubLink.appendChild(text(project.links[0][0]));
+  actions.appendChild(githubLink);
+
+  card.appendChild(actions);
   return card;
 }
 
@@ -69,31 +111,32 @@ export function fillList(elementId, items) {
 
 export function fillTags(tags) {
   const element = document.getElementById('modalTags');
-  element.innerHTML = tags
-    .map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`)
-    .join('');
+  element.innerHTML = '';
+  for (const tag of tags) element.appendChild(tagSpan(tag));
 }
 
 export function fillMeta(meta) {
   const element = document.getElementById('modalMeta');
-  element.innerHTML = meta
-    .map(
-      ([label, value]) => `
-      <div class="modal-meta-item">
-        <div class="modal-meta-label">${escapeHtml(label)}</div>
-        <div class="modal-meta-value">${escapeHtml(value)}</div>
-      </div>
-    `,
-    )
-    .join('');
+  element.innerHTML = '';
+  for (const [label, value] of meta) {
+    const item = document.createElement('div');
+    item.className = 'modal-meta-item';
+    item.appendChild(el('div', 'modal-meta-label', label));
+    item.appendChild(el('div', 'modal-meta-value', value));
+    element.appendChild(item);
+  }
 }
 
 export function fillLinks(links) {
   const element = document.getElementById('modalLinks');
-  element.innerHTML = links
-    .map(
-      ([label, href, primary], index) =>
-        `<a class="modal-link ${index === 0 && primary ? 'primary' : ''}" href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`,
-    )
-    .join('');
+  element.innerHTML = '';
+  links.forEach(([label, href, primary], index) => {
+    const a = document.createElement('a');
+    a.className = `modal-link${index === 0 && primary ? ' primary' : ''}`;
+    a.href = href;
+    a.target = '_blank';
+    a.rel = 'noreferrer';
+    a.appendChild(text(label));
+    element.appendChild(a);
+  });
 }

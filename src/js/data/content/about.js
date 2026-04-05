@@ -6,7 +6,7 @@ export const aboutTranslations = {
       'My projects often start from personal curiosity, but I try to push them further than a simple school deliverable: cleaner structure, clearer scope, better evidence, and more honest technical positioning.',
     ],
     quote:
-      'I like creative work — but I want the final result to remain rigorous, readable, and defensible.',
+      'I like creative work but I want the final result to remain rigorous, readable, and defensible.',
   },
   fr: {
     paragraphs: [
@@ -15,6 +15,6 @@ export const aboutTranslations = {
       'Mes projets partent souvent d’une curiosité personnelle, mais j’essaie de les pousser au-delà d’un simple rendu scolaire : structure plus propre, périmètre plus clair, meilleures preuves et positionnement technique plus honnête.',
     ],
     quote:
-      'J’aime le travail créatif — mais je veux que le résultat final reste rigoureux, lisible et défendable.',
+      'J’aime le travail créatif mais je veux que le résultat final reste rigoureux, lisible et défendable.',
   },
 };

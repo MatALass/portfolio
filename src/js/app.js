@@ -2,7 +2,7 @@ import { translations } from './data/content/index.js';
 import { ensureLanguage } from './utils/path.js';
 import { applyStaticTranslations, translate } from './render/translations.js';
 import { renderProjects } from './render/projects.js';
-import { openProjectModal, closeProjectModal } from './features/modal.js';
+import { closeProjectModal, openProjectModal } from './features/modal.js';
 import { fetchGitHubStats } from './features/github-snapshot.js';
 import { setupPlayableDemo } from './features/playable-demo.js';
 import { setupCustomCursor } from './features/cursor.js';

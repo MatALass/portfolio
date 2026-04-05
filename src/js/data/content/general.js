@@ -15,7 +15,7 @@ export const generalTranslations = {
     hero: {
       eyebrow: 'Data Analyst · Analytics Engineer · EFREI Paris',
       titleAccent: 'Reliable data systems.',
-      desc: 'I turn messy data into reliable KPIs, dashboards, and decision-ready systems — with a strong focus on data quality, maintainability, and execution quality.',
+      desc: 'I turn messy data into reliable KPIs, dashboards, and decision-ready systems with a strong focus on data quality, maintainability, and execution quality.',
       ctaProjects: 'View projects',
       ctaGithub: 'GitHub',
       ctaCv: 'Download CV →',
@@ -117,7 +117,7 @@ export const generalTranslations = {
     hero: {
       eyebrow: 'Data Analyst · Analytics Engineer · EFREI Paris',
       titleAccent: 'Reliable data systems.',
-      desc: 'Je transforme des données désordonnées en KPI fiables, dashboards et systèmes orientés décision — avec une forte exigence sur la qualité des données, la maintenabilité et la qualité d’exécution.',
+      desc: 'Je transforme des données désordonnées en KPI fiables, dashboards et systèmes orientés décision avec une forte exigence sur la qualité des données, la maintenabilité et la qualité d’exécution.',
       ctaProjects: 'Voir les projets',
       ctaGithub: 'GitHub',
       ctaCv: 'Télécharger le CV →',
