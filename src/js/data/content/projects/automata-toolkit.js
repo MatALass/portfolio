@@ -16,7 +16,7 @@ export const automataToolkit = {
     quote:
       'This project matters because it proves software engineering discipline independently from the data layer.',
     summary:
-      'Automata Toolkit is a structured Python CLI that parses finite automata, validates them, applies key transformations, and exports outputs cleanly. It is especially useful in the portfolio because it shows packaging, testing, and algorithmic rigor.',
+      'Automata Toolkit is a structured Python CLI that parses finite automata, validates them, applies transformations, and exports clean, structured outputs. It emphasizes modular architecture, explicit validation, and production-style packaging and testing.',
     context:
       'A portfolio focused only on dashboards can look too narrow. This project broadens the profile with a strong engineering artifact that is still rigorous and technically easy to defend.',
     architecture:
@@ -33,10 +33,13 @@ export const automataToolkit = {
     ],
     meta: [
       ['Role', 'CLI designer and developer'],
-      ['Signal', 'Strong architecture, validation logic, and test discipline'],
+      [
+        'Signal',
+        'CLI design, validation logic, modular architecture, test discipline',
+      ],
       [
         'Why it matters',
-        'Excellent engineering complement to a data / BI profile',
+        'Strong engineering complement to a data / BI-focused portfolio',
       ],
     ],
     links: [['GitHub', 'https://github.com/MatALass/automata-toolkit', true]],
@@ -58,7 +61,7 @@ export const automataToolkit = {
     quote:
       'Ce projet compte parce qu’il prouve une discipline software engineering indépendamment de la couche data.',
     summary:
-      'Automata Toolkit est un CLI Python structuré qui parse des automates finis, les valide, applique des transformations clés et exporte les résultats proprement. Il est particulièrement utile dans le portfolio parce qu’il montre packaging, testing et rigueur algorithmique.',
+      'Automata Toolkit est un CLI Python structuré qui parse des automates finis, les valide, applique des transformations et exporte des sorties propres et structurées. Il met l’accent sur une architecture modulaire, une validation explicite, ainsi qu’un packaging et des tests de niveau production.',
     context:
       'Un portfolio uniquement centré sur les dashboards peut paraître trop étroit. Ce projet élargit le profil avec un artefact d’ingénierie solide, tout en restant très défendable techniquement.',
     architecture:
@@ -77,11 +80,11 @@ export const automataToolkit = {
       ['Rôle', 'Concepteur et développeur du CLI'],
       [
         'Signal',
-        'Architecture solide, logique de validation et discipline de test',
+        'Conception CLI, logique de validation, architecture modulaire et discipline de test',
       ],
       [
         'Pourquoi il compte',
-        'Excellent complément engineering à un profil data / BI',
+        'Fort complément engineering à un portfolio orienté data / BI',
       ],
     ],
     links: [['GitHub', 'https://github.com/MatALass/automata-toolkit', true]],

@@ -10,7 +10,7 @@ export const generalTranslations = {
       experience: 'Experience',
       stack: 'Stack',
       about: 'About',
-      play: 'Play',
+      lab: 'Lab',
     },
     hero: {
       eyebrow: 'Data Analyst · Analytics Engineer · EFREI Paris',
@@ -59,10 +59,10 @@ export const generalTranslations = {
     },
     github: {
       snapshotKicker: 'Portfolio intelligence',
-      snapshotTitle: 'Repository signals from public GitHub',
+      snapshotTitle: 'Public GitHub activity signals',
       profileLink: 'View profile',
       reposLabel: 'Public repositories',
-      reposSub: 'Volume of public work available for review.',
+      reposSub: 'Public work volume available for analysis.',
       activeLabel: 'Repos active in last 180 days',
       activeSub: 'A signal of current iteration, not just archive history.',
       flagshipLabel: 'Flagship data / engineering repo',
@@ -70,7 +70,7 @@ export const generalTranslations = {
       latestSubLoading: 'Checking current public activity...',
       loading: 'Loading...',
       setUsername: 'Set username',
-      replaceUsername: 'Replace GITHUB_USERNAME in the script.',
+      replaceUsername: 'Replace GITHUB_USERNAME in the script configuration.',
       unavailable: 'Unavailable',
       noRepos: 'No public repos',
       nothingFound: 'Nothing found on the public API.',
@@ -112,7 +112,7 @@ export const generalTranslations = {
       experience: 'Expérience',
       stack: 'Stack',
       about: 'À propos',
-      play: 'Play',
+      lab: 'Lab',
     },
     hero: {
       eyebrow: 'Data Analyst · Analytics Engineer · EFREI Paris',
@@ -135,7 +135,7 @@ export const generalTranslations = {
         gameLabel: 'Modélisation appliquée',
         gameSub:
           'Feature engineering, logique d’évaluation et workflows ML maintenables.',
-        webLabel: 'Software delivery',
+        webLabel: 'Livraison de logiciels',
         webSub:
           'Documentation, culture du test, architecture et exécution présentable publiquement.',
       },
@@ -145,7 +145,7 @@ export const generalTranslations = {
       projectsTitle:
         'Des projets qui montrent ma manière de raisonner,<br><em>pas seulement ce que je peux afficher.</em>',
       projectsSubtitle:
-        'Chaque projet est présenté comme un cas montrant le périmètre, l’architecture, les signaux qualité et ce qu’il prouve au-delà d’une simple capture d’écran.',
+        'Chaque projet est présenté comme un cas concret mettant en évidence le périmètre, l’architecture, les indicateurs de qualité et ce qu’il démontre au-delà d’une simple capture d’écran.',
       experienceEyebrow: '02 — Expérience',
       experienceTitle:
         'Le travail réel compte,<br><em>surtout quand la donnée est imparfaite.</em>',
@@ -163,20 +163,21 @@ export const generalTranslations = {
     },
     github: {
       snapshotKicker: 'Portfolio intelligence',
-      snapshotTitle: 'Signaux repository depuis GitHub public',
+      snapshotTitle: 'Indicateurs d’activité GitHub publique',
       profileLink: 'Voir le profil',
-      reposLabel: 'Repositories publics',
-      reposSub: 'Volume de travail public disponible à l’examen.',
-      activeLabel: 'Repos actifs sur 180 jours',
-      activeSub: 'Un signal d’itération récente, pas seulement d’archives.',
-      flagshipLabel: 'Repository data / engineering principal',
-      latestLabel: 'Repository mis à jour le plus récemment',
+      reposLabel: 'Dépôts publics',
+      reposSub: 'Volume de travail public disponible pour analyse.',
+      activeLabel: 'Dépôts actifs sur 180 jours',
+      activeSub: 'Indique une activité récente, pas seulement des archives.',
+      flagshipLabel: 'Dépôt principal en data / ingénierie',
+      latestLabel: 'Dernier dépôt mis à jour',
       latestSubLoading: 'Vérification de l’activité publique en cours...',
       loading: 'Chargement...',
       setUsername: 'Définir le nom GitHub',
-      replaceUsername: 'Remplace GITHUB_USERNAME dans le script.',
+      replaceUsername:
+        'Remplace GITHUB_USERNAME dans la configuration du script.',
       unavailable: 'Indisponible',
-      noRepos: 'Aucun repo public',
+      noRepos: 'Aucun dépôt public',
       nothingFound: 'Aucune donnée trouvée via l’API publique.',
       unknownDate: 'Date inconnue',
       activeSuffix: 'actifs',

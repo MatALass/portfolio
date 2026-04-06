@@ -24,11 +24,11 @@ const modalIds = [
   'projectModalOverlay',
   'modalCloseBtn',
   'morpionFrame',
-  'playPlaceholder',
-  'play-embed-hint-text',
-  'play-browser-url',
-  'play-browser-open',
-  'play-live-link',
+  'labPlaceholder',
+  'lab-embed-hint-text',
+  'lab-browser-url',
+  'lab-browser-open',
+  'lab-live-link',
 ];
 
 test('openProjectModal fills content, toggles modal state, and focuses the close button', () => {
@@ -91,17 +91,17 @@ test('setupPlayableDemo uses the configured live URL for iframe and links', () =
     elements.get('morpionFrame').title,
     'Ultimate Tic-Tac-Toe with AI',
   );
-  assert.equal(elements.get('playPlaceholder').style.display, 'none');
+  assert.equal(elements.get('labPlaceholder').style.display, 'none');
   assert.equal(
-    elements.get('play-browser-url').textContent,
+    elements.get('lab-browser-url').textContent,
     'https://morpion-ultime.vercel.app/',
   );
   assert.equal(
-    elements.get('play-browser-open').href,
+    elements.get('lab-browser-open').href,
     'https://morpion-ultime.vercel.app/',
   );
   assert.equal(
-    elements.get('play-live-link').href,
+    elements.get('lab-live-link').href,
     'https://morpion-ultime.vercel.app/',
   );
 });

@@ -28,7 +28,8 @@ function applyContentMap(t) {
     'nav-experience': t('nav.experience'),
     'nav-stack': t('nav.stack'),
     'nav-about': t('nav.about'),
-    'nav-play': t('nav.play'),
+    'nav-lab': t('nav.lab'),
+
     'hero-eyebrow-text': t('hero.eyebrow'),
     'hero-title-accent': t('hero.titleAccent'),
     'hero-desc-text': t('hero.desc'),
@@ -46,6 +47,7 @@ function applyContentMap(t) {
     'metric-game-sub': t('hero.metrics.gameSub'),
     'metric-web-label': t('hero.metrics.webLabel'),
     'metric-web-sub': t('hero.metrics.webSub'),
+
     'projects-eyebrow-text': t('sections.projectsEyebrow'),
     'projects-subtitle-text': t('sections.projectsSubtitle'),
     'experience-eyebrow-text': t('sections.experienceEyebrow'),
@@ -54,8 +56,21 @@ function applyContentMap(t) {
     'stack-subtitle-text': t('sections.stackSubtitle'),
     'about-eyebrow-text': t('sections.aboutEyebrow'),
     'about-subtitle-text': t('sections.aboutSubtitle'),
-    'play-eyebrow-text': t('play.eyebrow'),
-    'play-subtitle-text': t('play.subtitle'),
+
+    'lab-eyebrow-text': t('lab.eyebrow'),
+    'lab-subtitle-text': t('lab.subtitle'),
+    'lab-kicker-text': t('lab.kicker'),
+    'lab-project-title-text': t('lab.projectTitle'),
+    'lab-project-copy-text': t('lab.projectCopy'),
+    'lab-live-link': t('lab.live'),
+    'lab-github-link': t('lab.github'),
+    'lab-browser-open': t('lab.fullPage'),
+    'lab-back-link': t('lab.back'),
+    'lab-embed-label-text': t('lab.embedLabel'),
+    'lab-embed-hint-text': t('lab.embedHint'),
+    'lab-placeholder-title-text': t('lab.placeholderTitle'),
+    'lab-placeholder-link': t('lab.placeholderLink'),
+
     'github-snapshot-kicker': t('github.snapshotKicker'),
     'github-snapshot-title': t('github.snapshotTitle'),
     'github-profile-link': t('github.profileLink'),
@@ -65,21 +80,12 @@ function applyContentMap(t) {
     'github-active-sub': t('github.activeSub'),
     'github-flagship-label': t('github.flagshipLabel'),
     'github-latest-label': t('github.latestLabel'),
-    'play-kicker-text': t('play.kicker'),
-    'play-project-title-text': t('play.projectTitle'),
-    'play-project-copy-text': t('play.projectCopy'),
-    'play-live-link': t('play.live'),
-    'play-github-link': t('play.github'),
-    'play-browser-open': t('play.fullPage'),
-    'play-back-link': t('play.back'),
-    'play-embed-label-text': t('play.embedLabel'),
-    'play-embed-hint-text': t('play.embedHint'),
-    'play-placeholder-title-text': t('play.placeholderTitle'),
-    'play-placeholder-link': t('play.placeholderLink'),
+
     'contact-title-text': t('contact.title'),
     'contact-note-text': t('contact.note'),
     'contact-resume-text': t('contact.resume'),
     'footer-note-text': t('footer.note'),
+
     'modal-context-title': t('modal.context'),
     'modal-architecture-title': t('modal.architecture'),
     'modal-decisions-title': t('modal.decisions'),
@@ -98,9 +104,9 @@ function applyHtmlMap(language, t) {
     'experience-title-text': t('sections.experienceTitle'),
     'stack-title-text': t('sections.stackTitle'),
     'about-title-text': t('sections.aboutTitle'),
-    'play-title-text': t('play.title'),
+    'lab-title-text': t('lab.title'),
     'about-copy-block': translations[language].about.paragraphs
-      .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+      .map((paragraph) => `<p>${paragraph}</p>`)
       .join(''),
   };
 
@@ -113,13 +119,15 @@ function applyHtmlMap(language, t) {
 function applyAbout(language, t) {
   document.getElementById('about-quote-line').textContent =
     translations[language].about.quote;
-  document.getElementById('play-placeholder-copy-text').textContent = t(
-    'play.placeholderCopy',
+
+  document.getElementById('lab-placeholder-copy-text').textContent = t(
+    'lab.placeholderCopy',
   );
-  document.getElementById('play-points-list').innerHTML = translations[
+
+  document.getElementById('lab-points-list').innerHTML = translations[
     language
-  ].play.points
-    .map((item) => `<div class="play-point">${escapeHtml(item)}</div>`)
+  ].lab.points
+    .map((item) => `<div class="play-point">${item}</div>`)
     .join('');
 }
 
@@ -152,7 +160,14 @@ function applyStack(language) {
   document.getElementById('stack-work-copy').textContent = stack.workCopy;
   document.getElementById('stack-card-2-title').textContent = stack.card2Title;
   document.getElementById('strength-list').innerHTML = stack.strengths
-    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .map(
+      (s) => `
+        <li class="stack-strength">
+          <span class="stack-strength-title">${s.title}</span>
+          <span class="stack-strength-desc">${s.desc}</span>
+        </li>
+      `,
+    )
     .join('');
 }
 

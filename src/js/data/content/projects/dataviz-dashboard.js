@@ -16,7 +16,7 @@ export const datavizDashboard = {
     quote:
       'A dashboard becomes useful when the metrics are structured enough to support interpretation, not only display.',
     summary:
-      'This project pushes beyond raw analysis toward a real BI deliverable: filtered views, interpretable indicators, and a clearer analytical story for non-technical readers.',
+      'This project goes beyond exploratory analysis by building a BI dashboard with structured KPIs, filtering logic, and a clear analytical narrative designed for non-technical users. It focuses on transforming raw cultural consumption data into interpretable indicators that support decision-making rather than visual overload.',
     context:
       'It sits between exploratory analysis and communication. The challenge is not only to compute something interesting, but to make the result readable and decision-oriented.',
     architecture:
@@ -33,10 +33,13 @@ export const datavizDashboard = {
     ],
     meta: [
       ['Role', 'Dashboard builder and analytical framing'],
-      ['Signal', 'Interactive Streamlit delivery with stronger KPI structure'],
+      [
+        'Signal',
+        'Interactive Streamlit dashboard with structured KPIs and analytical framing',
+      ],
       [
         'Why it matters',
-        'Solid BI showcase with clearer decision-support intent',
+        'Shows ability to design decision-oriented BI products, not just visualizations',
       ],
     ],
     links: [
@@ -64,7 +67,7 @@ export const datavizDashboard = {
     quote:
       'Un dashboard devient utile quand les métriques sont assez bien structurées pour soutenir l’interprétation, pas seulement l’affichage.',
     summary:
-      'Le projet va au-delà d’une analyse brute pour devenir un vrai livrable BI : vues filtrées, indicateurs interprétables et récit analytique plus clair pour un lecteur non technique.',
+      'Ce projet va au-delà d’une analyse exploratoire en construisant un dashboard BI avec des KPI structurés, une logique de filtres et un récit analytique clair pensé pour des utilisateurs non techniques. L’objectif est de transformer des données brutes de consommation culturelle en indicateurs interprétables qui soutiennent la décision au lieu d’accumuler les visualisations.',
     context:
       'Il se situe entre exploration de données et communication. Le défi n’est pas seulement de calculer quelque chose d’intéressant, mais de rendre le résultat lisible et orienté décision.',
     architecture:
@@ -81,10 +84,13 @@ export const datavizDashboard = {
     ],
     meta: [
       ['Rôle', 'Builder du dashboard et du cadrage analytique'],
-      ['Signal', 'Delivery Streamlit interactif avec meilleure structure KPI'],
+      [
+        'Signal',
+        'Dashboard Streamlit interactif avec KPI structurés et cadrage analytique',
+      ],
       [
         'Pourquoi il compte',
-        'Bon showcase BI avec intention décisionnelle plus nette',
+        'Montre la capacité à concevoir des produits BI orientés décision, pas seulement des visualisations',
       ],
     ],
     links: [

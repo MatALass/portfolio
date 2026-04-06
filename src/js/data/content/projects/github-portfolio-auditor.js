@@ -17,7 +17,7 @@ export const githubPortfolioAuditor = {
     quote:
       'To review my own repositories more rigorously, I built the reviewer I wanted from the start.',
     summary:
-      'This project came from a real portfolio problem: too many repositories, uneven quality, and no objective way to decide what should be featured. I built a deterministic system that scans repositories, scores them, and produces structured review outputs.',
+      'This project solves a real portfolio problem: too many repositories, uneven quality, and no objective way to decide what should be featured. I built a deterministic system that scans GitHub repositories, scores them out of 100 using explicit quality criteria, ranks them, and generates structured outputs (JSON reports, rankings, and portfolio recommendations).',
     context:
       'Manual repository review becomes fuzzy as a portfolio grows. I wanted a repeatable framework that behaves more like a demanding technical reviewer than a vague checklist.',
     architecture:
@@ -34,10 +34,13 @@ export const githubPortfolioAuditor = {
     ],
     meta: [
       ['Role', 'Designer and builder of the complete audit workflow'],
-      ['Signal', 'Deterministic scoring, repository ranking, review exports'],
+      [
+        'Signal',
+        'Deterministic scoring engine, repository ranking, structured review exports',
+      ],
       [
         'Why it matters',
-        'Strong fit with a data / analytics engineering portfolio narrative',
+        'Transforms subjective portfolio review into a reproducible engineering system',
       ],
     ],
     links: [
@@ -63,7 +66,7 @@ export const githubPortfolioAuditor = {
     quote:
       'Pour revoir mes propres repositories avec plus de rigueur, j’ai construit le reviewer que j’aurais aimé avoir dès le départ.',
     summary:
-      'Le projet vient d’un vrai problème de portfolio : trop de repositories, une qualité inégale et aucun moyen objectif de décider ce qui mérite d’être mis en avant. J’ai construit un système déterministe qui scanne les repositories, les note et produit des sorties de revue structurées.',
+      'Ce projet répond à un vrai problème de portfolio : trop de repositories, une qualité inégale et aucun moyen objectif de décider lesquels mettre en avant. J’ai construit un système déterministe qui scanne les repositories GitHub, les note sur 100 à partir de critères explicites, les classe et génère des sorties structurées (rapports JSON, classements et recommandations portfolio).',
     context:
       'La revue manuelle de repositories devient vite floue quand un portfolio grandit. Je voulais un cadre répétable, plus proche d’un reviewer technique exigeant que d’une checklist vague.',
     architecture:
@@ -80,10 +83,13 @@ export const githubPortfolioAuditor = {
     ],
     meta: [
       ['Rôle', 'Concepteur et développeur du workflow d’audit complet'],
-      ['Signal', 'Scoring déterministe, ranking de repos, exports de revue'],
+      [
+        'Signal',
+        'Moteur de scoring déterministe, classement de repositories, exports de revue structurés',
+      ],
       [
         'Pourquoi il compte',
-        'Très bon fit avec un récit data / analytics engineering',
+        'Transforme une revue portfolio subjective en système d’ingénierie reproductible',
       ],
     ],
     links: [

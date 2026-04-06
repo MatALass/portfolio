@@ -8,7 +8,7 @@ export const schoolBusDashboard = {
     shortPitch:
       'A data-driven prioritization system for electric school bus deployment, combining analytics, scoring, and public-facing visualization.',
     shortDescription:
-      'The project is valuable because it moves beyond a dataset toward operational prioritization logic and decision support.',
+      'This project moves beyond a dataset toward operational prioritization logic and decision support.',
     status: 'Published project',
     focus: 'Decision scoring, operational analytics, structured outputs',
     stack: 'Python, Streamlit, pandas, scoring logic',
@@ -16,7 +16,7 @@ export const schoolBusDashboard = {
     quote:
       'Useful analytics should help someone understand an operational situation faster and more clearly.',
     summary:
-      'This project is closer to applied analytics than simple exploration. It takes a public problem, structures the criteria, and translates the data into a prioritization system that can be explained.',
+      'This project transforms public transportation datasets into a scoring-based prioritization system, combining data preparation, analytical modeling, and dashboard delivery. It produces ranked outputs and decision-ready views to support real-world deployment prioritization scenarios.',
     context:
       'The main challenge is not only cleaning and aggregating public transport-related data, but turning it into a decision system with explicit assumptions and usable outputs.',
     architecture:
@@ -33,10 +33,10 @@ export const schoolBusDashboard = {
     ],
     meta: [
       ['Role', 'Builder of the decision workflow and dashboard'],
-      ['Signal', 'Analytics + scoring + interactive delivery'],
+      ['Signal', 'Analytics + scoring system + interactive decision dashboard'],
       [
         'Why it matters',
-        'Strong applied-data project with clearer operational value',
+        'Strong applied analytics project with clear operational value',
       ],
     ],
     links: [
@@ -56,7 +56,7 @@ export const schoolBusDashboard = {
     shortPitch:
       'Un système de priorisation piloté par la donnée pour le déploiement de bus scolaires électriques, combinant analytics, scoring et visualisation publique.',
     shortDescription:
-      'Le projet est intéressant parce qu’il dépasse le dataset pour proposer une logique de priorisation opérationnelle et d’aide à la décision.',
+      'Le projet dépasse le simple dataset pour proposer une logique de priorisation opérationnelle et d’aide à la décision.',
     status: 'Projet publié',
     focus: 'Scoring décisionnel, analytics opérationnelle, sorties structurées',
     stack: 'Python, Streamlit, pandas, logique de scoring',
@@ -64,7 +64,7 @@ export const schoolBusDashboard = {
     quote:
       'Une analytics utile doit aider quelqu’un à comprendre une situation opérationnelle plus vite et plus clairement.',
     summary:
-      'Ce projet se rapproche davantage d’une analytics appliquée que d’une simple exploration. Il prend un problème public, structure les critères et transforme la donnée en système de priorisation explicable.',
+      'Ce projet transforme des jeux de données publics liés au transport en système de priorisation fondé sur un scoring, en combinant préparation des données, modélisation analytique et delivery dashboard. Il produit des classements et des vues prêtes pour la décision afin de soutenir des scénarios réels de priorisation de déploiement.',
     context:
       'Le vrai défi n’est pas seulement de nettoyer et agréger des données publiques liées au transport, mais d’en faire un système décisionnel avec des hypothèses explicites et des sorties utilisables.',
     architecture:
@@ -81,10 +81,13 @@ export const schoolBusDashboard = {
     ],
     meta: [
       ['Rôle', 'Builder du workflow décisionnel et du dashboard'],
-      ['Signal', 'Analytics + scoring + delivery interactif'],
+      [
+        'Signal',
+        'Analytics + système de scoring + dashboard décisionnel interactif',
+      ],
       [
         'Pourquoi il compte',
-        'Projet data appliqué avec valeur opérationnelle plus nette',
+        'Projet d’analytics appliquée avec valeur opérationnelle claire',
       ],
     ],
     links: [

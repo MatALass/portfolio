@@ -2,7 +2,7 @@ import { generalTranslations } from './general.js';
 import { experienceTranslations } from './experience.js';
 import { stackTranslations } from './stack.js';
 import { aboutTranslations } from './about.js';
-import { playTranslations } from './play.js';
+import { labTranslations } from './lab.js';
 import { projectTranslations } from './projects/index.js';
 
 export { projectTranslations };
@@ -15,7 +15,7 @@ export const translations = Object.fromEntries(
       experience: experienceTranslations[language],
       stack: stackTranslations[language],
       about: aboutTranslations[language],
-      play: playTranslations[language],
+      lab: labTranslations[language],
     },
   ]),
 );

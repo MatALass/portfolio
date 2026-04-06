@@ -8,7 +8,7 @@ export const footpredict = {
     shortPitch:
       'A football prediction project designed as a maintainable workflow rather than a disposable notebook.',
     shortDescription:
-      'The value is in the full pipeline: data ingestion, feature engineering, training logic, evaluation, and long-term extensibility toward backtesting.',
+      'The value lies in a complete pipeline covering data ingestion, feature engineering, training, and evaluation.',
     status: 'Work in progress',
     focus: 'Dataset pipeline, features, evaluation, ML workflow structure',
     stack: 'Python, pandas, scikit-learn, APIs',
@@ -16,7 +16,7 @@ export const footpredict = {
     quote:
       'I wanted a machine learning project that could survive beyond a single experiment.',
     summary:
-      'The goal is not only to predict football matches, but to build a reusable workflow around data acquisition, feature generation, model training, and evaluation.',
+      'This project builds a full ML pipeline around football match prediction: data acquisition, feature engineering, model training, and evaluation. It uses historical match data, structured features, and supervised models to produce measurable predictions instead of isolated experiments.',
     context:
       'The project started from sports prediction curiosity, but the real challenge quickly became architectural: turning a modeling idea into a maintainable system with explicit stages.',
     architecture:
@@ -33,8 +33,14 @@ export const footpredict = {
     ],
     meta: [
       ['Role', 'End-to-end builder'],
-      ['Signal', 'API → dataset → features → model evaluation flow'],
-      ['Why it matters', 'Good ML complement to a BI / analytics portfolio'],
+      [
+        'Signal',
+        'End-to-end ML pipeline: dataset → features → training → evaluation',
+      ],
+      [
+        'Why it matters',
+        'Demonstrates ability to move from ML experimentation to maintainable data workflows',
+      ],
     ],
     links: [['GitHub', 'https://github.com/MatALass/footpredict', true]],
   },
@@ -45,9 +51,9 @@ export const footpredict = {
     badgeClass: 'terra',
     category: 'Machine learning',
     shortPitch:
-      'Un projet de prédiction football conçu comme un workflow maintenable plutôt qu’un notebook jetable.',
+      'Un projet de prédiction football conçu comme une pipeline ML maintenable, et non comme un simple notebook expérimental.',
     shortDescription:
-      'La valeur est dans la pipeline complète : ingestion des données, feature engineering, logique d’entraînement, évaluation et extensibilité long terme vers le backtesting.',
+      'La valeur réside dans une pipeline complète couvrant l’ingestion, le feature engineering, l’entraînement et l’évaluation.',
     status: 'Work in progress',
     focus: 'Pipeline dataset, features, évaluation, structure de workflow ML',
     stack: 'Python, pandas, scikit-learn, APIs',
@@ -55,7 +61,7 @@ export const footpredict = {
     quote:
       'Je voulais un projet de machine learning capable de survivre au-delà d’une seule expérience.',
     summary:
-      'L’objectif n’est pas seulement de prédire des matchs, mais de construire un workflow réutilisable autour de l’acquisition des données, de la génération de features, de l’entraînement et de l’évaluation.',
+      'Ce projet construit une pipeline ML complète autour de la prédiction de matchs de football : acquisition des données, feature engineering, entraînement et évaluation des modèles. Il s’appuie sur des données historiques, des features structurées et des modèles supervisés pour produire des prédictions mesurables plutôt que des expériences isolées.',
     context:
       'Le projet part d’une curiosité pour la prédiction sportive, mais le vrai défi est rapidement devenu architectural : transformer une idée de modélisation en système maintenable avec des étapes explicites.',
     architecture:
@@ -72,8 +78,14 @@ export const footpredict = {
     ],
     meta: [
       ['Rôle', 'Builder end-to-end'],
-      ['Signal', 'Workflow API → dataset → features → évaluation modèle'],
-      ['Pourquoi il compte', 'Bon complément ML à un portfolio BI / analytics'],
+      [
+        'Signal',
+        'Pipeline ML end-to-end : dataset → features → entraînement → évaluation',
+      ],
+      [
+        'Pourquoi il compte',
+        'Montre la capacité à passer de l’expérimentation ML à un workflow data maintenable',
+      ],
     ],
     links: [['GitHub', 'https://github.com/MatALass/footpredict', true]],
   },

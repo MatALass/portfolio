@@ -1,6 +1,7 @@
 /* ============================================================
    stack.css — portfolio-mathieu-alassoeur
    ============================================================ */
+
 .stack-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -30,17 +31,21 @@
   color: var(--black);
 }
 
+/* ===============================
+   LEFT SIDE (capabilities)
+================================ */
+
 .stack-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .stack-label {
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--gray-500);
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.4rem;
 }
 
 .stack-copy {
@@ -49,24 +54,44 @@
   color: var(--gray-700);
 }
 
+/* ===============================
+   RIGHT SIDE (strengths)
+================================ */
+
 .strength-list {
   display: grid;
-  gap: 0.7rem;
+  gap: 0.6rem;
   list-style: none;
 }
 
-.strength-list li {
+.stack-strength {
   border-top: 1px solid var(--gray-100);
   padding-top: 0.7rem;
-  font-size: 0.83rem;
-  line-height: 1.65;
-  color: var(--gray-700);
+  display: flex;
+  flex-direction: column;
 }
 
-.strength-list li:first-child {
+.stack-strength:first-child {
   border-top: none;
   padding-top: 0;
 }
+
+.stack-strength-title {
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 2px;
+  color: var(--black);
+}
+
+.stack-strength-desc {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--gray-700);
+}
+
+/* ===============================
+   ABOUT SECTION
+================================ */
 
 #about {
   background: var(--black);
