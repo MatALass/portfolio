@@ -15,11 +15,11 @@
   font-family: var(--font-display);
   font-style: italic;
   font-size: 0.95rem;
-  color: var(--indigo-light);
+  color: #a8a5b3;
 }
 
 .footer-note {
   font-family: var(--font-mono);
   font-size: 0.63rem;
-  color: #5f5b68;
+  color: #8b8797;
 }
