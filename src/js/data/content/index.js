@@ -3,7 +3,7 @@ import { experienceTranslations } from './experience.js';
 import { stackTranslations } from './stack.js';
 import { aboutTranslations } from './about.js';
 import { playTranslations } from './play.js';
-import { projectTranslations } from './projects.js';
+import { projectTranslations } from './projects/index.js';
 
 export { projectTranslations };
 

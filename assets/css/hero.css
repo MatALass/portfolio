@@ -1,0 +1,359 @@
+/* ============================================================
+   hero.css — portfolio-mathieu-alassoeur
+   ============================================================ */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 1.4rem;
+  animation: fadeUp 0.6s ease 0.15s both;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  display: block;
+  background: var(--terra);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5.2vw, 5.25rem);
+  font-weight: 400;
+  line-height: 1.02;
+  color: var(--black);
+  margin-bottom: 1.2rem;
+  animation: fadeUp 0.6s ease 0.3s both;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--indigo);
+}
+
+.hero-title .accent {
+  color: var(--terra);
+  font-style: normal;
+}
+
+.hero-desc {
+  max-width: 620px;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--gray-500);
+  margin-bottom: 2rem;
+  animation: fadeUp 0.6s ease 0.45s both;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.6s ease 0.6s both;
+}
+
+.btn-primary,
+.btn-ghost,
+.btn-link,
+.card-action,
+.modal-link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.15s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+  letter-spacing: 0.04em;
+}
+
+.btn-primary {
+  font-size: 0.84rem;
+  font-weight: 500;
+  padding: 12px 24px;
+  background: var(--indigo);
+  color: var(--white);
+  border: 1px solid var(--indigo);
+  border-radius: 2px;
+}
+
+.btn-primary:hover {
+  background: var(--indigo-light);
+  border-color: var(--indigo-light);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  font-size: 0.84rem;
+  font-weight: 500;
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--black);
+  border: 1px solid var(--gray-300);
+  border-radius: 2px;
+}
+
+.btn-ghost:hover {
+  border-color: var(--indigo);
+  color: var(--indigo);
+  transform: translateY(-2px);
+}
+
+.btn-link {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--terra);
+  gap: 0.5rem;
+  padding: 12px 0;
+}
+
+.btn-link:hover {
+  transform: translateX(3px);
+}
+
+.hero-note {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--gray-300);
+  letter-spacing: 0.03em;
+  animation: fadeUp 0.6s ease 0.75s both;
+}
+
+.hero-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeUp 0.6s ease 0.8s both;
+}
+
+.hero-panel {
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(250, 250, 248, 0.98)
+  );
+  padding: 1.4rem 1.5rem;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hero-panel:hover {
+  border-color: var(--indigo-pale);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-soft);
+}
+
+.panel-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.panel-top-simple {
+  justify-content: flex-end;
+}
+
+.panel-code {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--gray-300);
+  letter-spacing: 0.03em;
+}
+
+.panel-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 4px 8px;
+  border-radius: 2px;
+  background: var(--indigo-pale);
+  color: var(--indigo);
+  white-space: nowrap;
+}
+
+.panel-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.28rem;
+  color: var(--black);
+  margin-bottom: 0.45rem;
+}
+
+.panel-copy {
+  font-size: 0.83rem;
+  line-height: 1.7;
+  color: var(--gray-500);
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.metric-card {
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.25rem;
+  background: var(--white);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.metric-card:hover {
+  border-color: var(--terra-pale);
+  transform: translateY(-3px);
+}
+
+.metric-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--indigo);
+  margin-bottom: 0.45rem;
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  color: var(--black);
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.metric-sub {
+  font-size: 0.73rem;
+  line-height: 1.55;
+  color: var(--gray-500);
+}
+
+.hero-github-row {
+  display: block;
+}
+
+.github-snapshot-card {
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.98),
+    rgba(250, 250, 248, 0.98)
+  );
+  padding: 1.15rem;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.github-snapshot-card:hover {
+  border-color: var(--indigo-pale);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+}
+
+.github-snapshot-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.github-snapshot-kicker,
+.play-kicker,
+.play-embed-label {
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+.github-snapshot-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--black);
+}
+
+.github-snapshot-link {
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--terra);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.github-snapshot-link:hover {
+  color: var(--terra-light);
+  transform: translateX(2px);
+}
+
+.github-snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.github-metric-card {
+  min-height: 138px;
+}
+
+.github-metric-value {
+  font-size: 1.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.github-live-label {
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.45rem;
+}
+
+.github-live-value {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--black);
+  font-weight: 500;
+}
+
+.github-live-sub {
+  font-size: 0.72rem;
+  color: var(--gray-500);
+  margin-top: 0.3rem;
+  line-height: 1.5;
+}
+
+.github-snapshot-summary {
+  display: none;
+}
+
+#play {
+  background: var(--gray-100);
+}

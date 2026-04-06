@@ -1,7 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { fetchGitHubStats } from '../src/js/features/github-snapshot.js';
+import {
+  fetchGitHubStats,
+  _resetCache,
+} from '../src/js/features/github-snapshot.js';
 import { translate } from '../src/js/render/translations.js';
 import { FLAGSHIP_REPO, FLAGSHIP_META } from '../src/js/data/config.js';
 import { createFakeDocument } from './dom-test-helpers.js';
@@ -52,6 +55,7 @@ test('fetchGitHubStats renders GitHub API data into the snapshot card', async ()
 });
 
 test('fetchGitHubStats sets error state when API call fails', async () => {
+  _resetCache();
   const { document, elements, FakeElement } = createFakeDocument(ids);
   const snapshotCard = new FakeElement('snapshot-card', 'div');
   snapshotCard.classList.add('github-snapshot-card');

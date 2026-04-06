@@ -15,6 +15,14 @@ function githubHeaders() {
   return GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : {};
 }
 
+/** In-memory cache — cleared on page reload, prevents refetch on lang switch */
+let _cache = null;
+
+/** Exported for tests only — resets the in-memory cache between test runs */
+export function _resetCache() {
+  _cache = null;
+}
+
 function setGitHubSnapshotState({
   repoCount,
   activeCount,
@@ -38,6 +46,13 @@ function setGitHubSnapshotState({
 }
 
 export async function fetchGitHubStats(language, translate, fetchImpl = fetch) {
+  // If we already have data, only re-render with the new language — no network call
+  if (_cache) {
+    const { user, repos } = _cache;
+    _renderFromData(user, repos, language, translate);
+    return;
+  }
+
   setGitHubSnapshotState({
     repoCount: translate('github.loading'),
     activeCount: translate('github.loading'),
@@ -61,16 +76,21 @@ export async function fetchGitHubStats(language, translate, fetchImpl = fetch) {
 
   try {
     const headers = githubHeaders();
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
+
     const [userResponse, reposResponse] = await Promise.all([
       fetchImpl(
         `https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}`,
-        { headers },
+        { headers, signal: controller.signal },
       ),
       fetchImpl(
         `https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}/repos?per_page=100&sort=updated`,
-        { headers },
+        { headers, signal: controller.signal },
       ),
     ]);
+
+    clearTimeout(timeoutId);
 
     if (!userResponse.ok)
       throw new Error(`GitHub user API returned ${userResponse.status}`);
@@ -80,30 +100,10 @@ export async function fetchGitHubStats(language, translate, fetchImpl = fetch) {
     const user = await userResponse.json();
     const repos = await reposResponse.json();
 
-    if (!Array.isArray(repos) || repos.length === 0) {
-      setGitHubSnapshotState({
-        repoCount: String(user.public_repos ?? translate('github.unavailable')),
-        activeCount: '0',
-        flagshipRepo: FLAGSHIP_REPO,
-        flagshipMeta: FLAGSHIP_META,
-        latestRepo: translate('github.noRepos'),
-        latestDate: translate('github.nothingFound'),
-      });
-      return;
-    }
+    // Populate cache before rendering
+    _cache = { user, repos };
 
-    const summary = summarizeGitHubRepos(repos);
-
-    setGitHubSnapshotState({
-      repoCount: String(user.public_repos ?? translate('github.unavailable')),
-      activeCount: String(summary.activeCount),
-      flagshipRepo: FLAGSHIP_REPO,
-      flagshipMeta: FLAGSHIP_META,
-      latestRepo: summary.latestRepoName || translate('github.unavailable'),
-      latestDate: summary.latestPushedAt
-        ? `${translate('github.updatedOn')} ${formatGithubDate(summary.latestPushedAt, language)}`
-        : translate('github.unknownDate'),
-    });
+    _renderFromData(user, repos, language, translate);
   } catch (error) {
     setGitHubSnapshotState({
       repoCount: translate('github.unavailable'),
@@ -116,4 +116,32 @@ export async function fetchGitHubStats(language, translate, fetchImpl = fetch) {
     });
     console.error('GitHub stats error:', error);
   }
+}
+
+/** Separated render logic — called from cache or fresh fetch */
+function _renderFromData(user, repos, language, translate) {
+  if (!Array.isArray(repos) || repos.length === 0) {
+    setGitHubSnapshotState({
+      repoCount: String(user.public_repos ?? translate('github.unavailable')),
+      activeCount: '0',
+      flagshipRepo: FLAGSHIP_REPO,
+      flagshipMeta: FLAGSHIP_META,
+      latestRepo: translate('github.noRepos'),
+      latestDate: translate('github.nothingFound'),
+    });
+    return;
+  }
+
+  const summary = summarizeGitHubRepos(repos);
+
+  setGitHubSnapshotState({
+    repoCount: String(user.public_repos ?? translate('github.unavailable')),
+    activeCount: String(summary.activeCount),
+    flagshipRepo: FLAGSHIP_REPO,
+    flagshipMeta: FLAGSHIP_META,
+    latestRepo: summary.latestRepoName || translate('github.unavailable'),
+    latestDate: summary.latestPushedAt
+      ? `${translate('github.updatedOn')} ${formatGithubDate(summary.latestPushedAt, language)}`
+      : translate('github.unknownDate'),
+  });
 }

@@ -1,0 +1,25 @@
+/* ============================================================
+   footer.css — portfolio-mathieu-alassoeur
+   ============================================================ */
+.footer-inner {
+  width: min(var(--container), calc(100% - 3rem));
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--indigo-light);
+}
+
+.footer-note {
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  color: #5f5b68;
+}

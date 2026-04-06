@@ -4,7 +4,7 @@
 [![Build](https://github.com/MatALass/portfolio/actions/workflows/ci.yml/badge.svg?branch=main&label=build)](https://github.com/MatALass/portfolio/actions/workflows/ci.yml)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-**Live:** [final-portfolio-eosin-seven.vercel.app](https://final-portfolio-eosin-seven.vercel.app/)
+**Live:** [portfolio-mathieu-alassoeur.vercel.app](https://portfolio-mathieu-alassoeur.vercel.app/)
 
 ---
 

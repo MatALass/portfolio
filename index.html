@@ -22,11 +22,11 @@
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://final-portfolio-eosin-seven.vercel.app/"
+      content="https://portfolio-mathieu-alassoeur.vercel.app/"
     />
     <meta
       property="og:image"
-      content="https://final-portfolio-eosin-seven.vercel.app/assets/preview.png"
+      content="https://portfolio-mathieu-alassoeur.vercel.app/assets/preview.png"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -47,13 +47,13 @@
     />
     <meta
       name="twitter:image"
-      content="https://final-portfolio-eosin-seven.vercel.app/assets/preview.png"
+      content="https://portfolio-mathieu-alassoeur.vercel.app/assets/preview.png"
     />
 
     <meta name="robots" content="index, follow" />
     <link
       rel="canonical"
-      href="https://final-portfolio-eosin-seven.vercel.app/"
+      href="https://portfolio-mathieu-alassoeur.vercel.app/"
     />
 
     <!-- Favicon -->
@@ -98,7 +98,43 @@
       crossorigin
     />
     <link rel="stylesheet" href="/fonts/fonts.css" />
-    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://portfolio-mathieu-alassoeur.vercel.app/#person",
+            "name": "Mathieu Alassoeur",
+            "url": "https://portfolio-mathieu-alassoeur.vercel.app/",
+            "jobTitle": "Data Analyst · Analytics Engineer",
+            "knowsAbout": [
+              "Data Analysis",
+              "Analytics Engineering",
+              "Business Intelligence",
+              "Machine Learning",
+              "Python",
+              "SQL"
+            ],
+            "sameAs": ["https://github.com/MatALass"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://portfolio-mathieu-alassoeur.vercel.app/#website",
+            "url": "https://portfolio-mathieu-alassoeur.vercel.app/",
+            "name": "Mathieu Alassoeur — Portfolio",
+            "description": "Portfolio of Mathieu Alassoeur — Data Analyst, Analytics Engineer, BI, ML, and software engineering projects.",
+            "author": {
+              "@id": "https://portfolio-mathieu-alassoeur.vercel.app/#person"
+            },
+            "inLanguage": ["en", "fr"]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#projects">Skip to projects</a>

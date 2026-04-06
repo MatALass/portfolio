@@ -1,0 +1,16 @@
+/* ============================================================
+   index.css — portfolio-mathieu-alassoeur
+   Central CSS entry point — import order matters
+   ============================================================ */
+
+@import './base.css';
+@import './layout.css';
+@import './nav.css';
+@import './hero.css';
+@import './projects.css';
+@import './experience.css';
+@import './stack.css';
+@import './about.css';
+@import './footer.css';
+@import './modal.css';
+@import './responsive.css';

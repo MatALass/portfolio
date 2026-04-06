@@ -1,0 +1,89 @@
+/* ============================================================
+   stack.css — portfolio-mathieu-alassoeur
+   ============================================================ */
+.stack-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.stack-card {
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+  background: var(--white);
+}
+
+.stack-card:hover {
+  border-color: var(--indigo-pale);
+  transform: translateY(-3px);
+}
+
+.stack-card h3 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.18rem;
+  margin-bottom: 1rem;
+  color: var(--black);
+}
+
+.stack-group {
+  margin-bottom: 1rem;
+}
+
+.stack-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: 0.45rem;
+}
+
+.stack-copy {
+  font-size: 0.86rem;
+  line-height: 1.75;
+  color: var(--gray-700);
+}
+
+.strength-list {
+  display: grid;
+  gap: 0.7rem;
+  list-style: none;
+}
+
+.strength-list li {
+  border-top: 1px solid var(--gray-100);
+  padding-top: 0.7rem;
+  font-size: 0.83rem;
+  line-height: 1.65;
+  color: var(--gray-700);
+}
+
+.strength-list li:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+#about {
+  background: var(--black);
+}
+
+#about .section-eyebrow {
+  color: var(--terra-light);
+}
+
+#about .section-eyebrow::before {
+  background: var(--terra-light);
+}
+
+#about .section-title {
+  color: var(--white);
+}
+
+#about .section-subtitle {
+  color: #6e6a78;
+}

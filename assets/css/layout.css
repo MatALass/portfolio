@@ -1,0 +1,55 @@
+/* ============================================================
+   layout.css — portfolio-mathieu-alassoeur
+   ============================================================ */
+.section-header {
+  margin-bottom: 3rem;
+  max-width: 760px;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 1rem;
+}
+
+.section-eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--terra);
+  display: block;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--black);
+  margin-bottom: 0.85rem;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--indigo);
+}
+
+.section-subtitle {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--gray-500);
+  max-width: 650px;
+}
+
+#home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 9rem;
+}
