@@ -49,7 +49,7 @@ export const datavizDashboard = {
         true,
       ],
       [
-        'App',
+        'App live',
         'https://matalass-digital-cultural-consumption-analytics.streamlit.app/',
         false,
       ],
@@ -105,7 +105,7 @@ export const datavizDashboard = {
         true,
       ],
       [
-        'App',
+        'App live',
         'https://matalass-digital-cultural-consumption-analytics.streamlit.app/',
         false,
       ],

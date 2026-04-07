@@ -46,7 +46,7 @@ export const schoolBusDashboard = {
         true,
       ],
       [
-        'App',
+        'App live',
         'https://matalass-school-bus-decision-system.streamlit.app/',
         false,
       ],
@@ -102,7 +102,7 @@ export const schoolBusDashboard = {
         true,
       ],
       [
-        'App',
+        'App live',
         'https://matalass-school-bus-decision-system.streamlit.app/',
         false,
       ],
