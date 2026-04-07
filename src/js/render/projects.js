@@ -73,6 +73,7 @@ export function createProjectCard(project, labels) {
   card.appendChild(tags);
 
   // Actions
+  // Actions
   const actions = document.createElement('div');
   actions.className = 'project-actions';
 
@@ -82,13 +83,15 @@ export function createProjectCard(project, labels) {
   openBtn.appendChild(text(labels.openCase));
   actions.appendChild(openBtn);
 
-  const githubLink = document.createElement('a');
-  githubLink.className = 'project-link-inline';
-  githubLink.href = project.links[0][1];
-  githubLink.target = '_blank';
-  githubLink.rel = 'noreferrer';
-  githubLink.appendChild(text(project.links[0][0]));
-  actions.appendChild(githubLink);
+  for (const [label, href] of project.links) {
+    const link = document.createElement('a');
+    link.className = 'project-link-inline';
+    link.href = href;
+    link.target = '_blank';
+    link.rel = 'noreferrer';
+    link.appendChild(text(label));
+    actions.appendChild(link);
+  }
 
   card.appendChild(actions);
   return card;

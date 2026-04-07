@@ -48,6 +48,11 @@ export const datavizDashboard = {
         'https://github.com/MatALass/digital-cultural-consumption-analytics',
         true,
       ],
+      [
+        'App',
+        'https://matalass-digital-cultural-consumption-analytics.streamlit.app/',
+        false,
+      ],
     ],
   },
   fr: {
@@ -98,6 +103,11 @@ export const datavizDashboard = {
         'GitHub',
         'https://github.com/MatALass/digital-cultural-consumption-analytics',
         true,
+      ],
+      [
+        'App',
+        'https://matalass-digital-cultural-consumption-analytics.streamlit.app/',
+        false,
       ],
     ],
   },

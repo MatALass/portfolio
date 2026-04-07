@@ -45,6 +45,11 @@ export const schoolBusDashboard = {
         'https://github.com/MatALass/school-bus-decision-system',
         true,
       ],
+      [
+        'App',
+        'https://matalass-school-bus-decision-system.streamlit.app/',
+        false,
+      ],
     ],
   },
   fr: {
@@ -95,6 +100,11 @@ export const schoolBusDashboard = {
         'GitHub',
         'https://github.com/MatALass/school-bus-decision-system',
         true,
+      ],
+      [
+        'App',
+        'https://matalass-school-bus-decision-system.streamlit.app/',
+        false,
       ],
     ],
   },

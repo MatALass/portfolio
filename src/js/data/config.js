@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
   githubUsername: 'MatALass',
   playableDemoUrl: 'https://morpion-ultime.vercel.app/',
-  cvFilePath: './assets/docs/mathieu-alassoeur-cv.pdf',
+  cvFilePath: '/docs/mathieu-alassoeur-cv.pdf',
   enableCustomCursor: false,
   flagshipRepo: 'github-portfolio-auditor',
   flagshipMeta:

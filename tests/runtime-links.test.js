@@ -14,11 +14,11 @@ test('applyRuntimeLinks injects CV and GitHub URLs from configuration', () => {
 
   assert.equal(
     elements.get('hero-cta-cv').href,
-    './assets/docs/mathieu-alassoeur-cv.pdf',
+    '/docs/mathieu-alassoeur-cv.pdf',
   );
   assert.equal(
     elements.get('contact-resume-link').href,
-    './assets/docs/mathieu-alassoeur-cv.pdf',
+    '/docs/mathieu-alassoeur-cv.pdf',
   );
   assert.equal(
     elements.get('github-profile-link').href,
