@@ -42,7 +42,7 @@ export const footpredict = {
         'Demonstrates ability to move from ML experimentation to maintainable data workflows',
       ],
     ],
-    links: [['GitHub', 'https://github.com/MatALass/footpredict', true]],
+    links: [['GitHub', 'https://github.com/MatALass/footpredict-pl', true]],
   },
   fr: {
     id: 'footpredict',
@@ -87,6 +87,6 @@ export const footpredict = {
         'Montre la capacité à passer de l’expérimentation ML à un workflow data maintenable',
       ],
     ],
-    links: [['GitHub', 'https://github.com/MatALass/footpredict', true]],
+    links: [['GitHub', 'https://github.com/MatALass/footpredict-pl', true]],
   },
 };

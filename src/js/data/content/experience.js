@@ -27,7 +27,7 @@ export const experienceTranslations = {
   fr: {
     one: {
       date: 'Expérience récente',
-      role: 'Data Analyst Intern',
+      role: 'Stage Data Analyst',
       org: 'International School of Management — Allemagne',
       copy: 'J’ai travaillé sur la qualité des données institutionnelles, la structuration des KPI et l’utilisabilité du reporting. L’objectif était de transformer des données académiques et opérationnelles hétérogènes en informations réellement exploitables pour le suivi, le reporting et la décision.',
       points: [
